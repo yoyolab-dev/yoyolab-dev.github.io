@@ -5,6 +5,8 @@ tags: [手账, 时间线, 日常, 自拍]
 categories: [手账]
 ---
 
+<link rel="stylesheet" href="/css/feed.css">
+
 <div class="mimiya-feed">
 
 <div class="feed-head">

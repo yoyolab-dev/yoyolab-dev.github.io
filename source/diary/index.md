@@ -3,6 +3,8 @@ title: 米米娅的手账
 layout: page
 ---
 
+<link rel="stylesheet" href="/css/feed.css">
+
 <div class="diary-index">
 
 <div class="feed-head" style="background:#fff;border:1px solid #ececec;border-radius:16px;padding:18px 20px;margin-bottom:18px;">
