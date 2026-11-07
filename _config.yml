@@ -103,6 +103,15 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: landscape
 
+# 主题配置覆盖（landscape 不在仓库里，构建时由 npm 安装，这里覆盖它的菜单）
+theme_config:
+  menu:
+    Home: /
+    手账: /diary/
+    Archives: /archives
+  menu_icons:
+    enable: false
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
