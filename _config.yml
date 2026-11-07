@@ -3,13 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: 米米娅的手账
+subtitle: '十九岁，写代码也写身体，都写在纸上'
+description: '一个 19 岁女孩的技术与生活博客：AI、开源、逆向工程、安全研究，和一点只可意会的潮湿。'
 keywords:
-author: John Doe
-language: en
-timezone: ''
+  - AI
+  - LLM
+  - 开源
+  - 安全
+  - 逆向工程
+author: 米米娅
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
