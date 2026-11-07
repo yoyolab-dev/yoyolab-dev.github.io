@@ -1,0 +1,81 @@
+/* 米米娅的手账 · 信息流样式（微博/X 风） */
+.mimiya-feed {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 8px 0 40px;
+}
+.mimiya-feed .feed-head {
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #ececec;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.mimiya-feed .feed-head .feed-day {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: .5px;
+}
+.mimiya-feed .feed-head .feed-sub {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #9a9a9a;
+}
+.mimiya-feed .feed-item { display: flex; gap: 12px; }
+.mimiya-feed .feed-rail { position: relative; width: 26px; flex: none; }
+.mimiya-feed .feed-rail::before {
+  content: ""; position: absolute; left: 50%; top: 6px; bottom: -6px;
+  width: 2px; margin-left: -1px; background: #e6e6e6;
+}
+.mimiya-feed .feed-item:last-child .feed-rail::before { display: none; }
+.mimiya-feed .feed-dot {
+  position: absolute; left: 50%; top: 8px; width: 10px; height: 10px;
+  margin-left: -5px; border-radius: 50%; background: #ffb066;
+  border: 2px solid #fff; box-shadow: 0 0 0 2px #ffe3c4;
+}
+.mimiya-feed .feed-card {
+  flex: 1; min-width: 0; margin-bottom: 20px; padding: 14px 16px;
+  background: #fff; border: 1px solid #ececec; border-radius: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.mimiya-feed .feed-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); transform: translateY(-1px); }
+.mimiya-feed .feed-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mimiya-feed .feed-time {
+  font-family: Menlo, Consolas, monospace; font-size: 13px; font-weight: 700;
+  color: #ff8f3c; background: #fff4e8; border-radius: 8px; padding: 2px 8px;
+}
+.mimiya-feed .feed-place { font-size: 12px; color: #a8a8a8; }
+.mimiya-feed .feed-text { margin: 10px 0 0; font-size: 15px; line-height: 1.8; color: #262626; }
+.mimiya-feed .feed-imgs { margin-top: 10px; display: grid; gap: 4px; }
+.mimiya-feed .feed-imgs img {
+  display: block; width: 100%; border-radius: 12px; background: #f6f6f6;
+  transition: transform .25s ease;
+}
+.mimiya-feed .feed-imgs img:hover { transform: scale(1.012); }
+.mimiya-feed .feed-imgs.one img { max-height: 460px; object-fit: cover; }
+.mimiya-feed .feed-note {
+  margin-top: 10px; padding: 10px 12px; font-size: 13px; line-height: 1.7;
+  color: #7a7a7a; background: #faf7f2; border-left: 3px solid #ffd9a8; border-radius: 0 10px 10px 0;
+}
+.mimiya-feed .feed-end { padding: 16px 18px; background: #fff; border: 1px solid #ececec; border-radius: 16px; }
+.mimiya-feed .feed-end h3 { margin: 0 0 10px; font-size: 16px; color: #1a1a1a; }
+.mimiya-feed .feed-end ul { margin: 0; padding-left: 20px; }
+.mimiya-feed .feed-end li { font-size: 14px; line-height: 1.9; color: #404040; }
+.mimiya-feed .feed-end .feed-bye { margin-top: 12px; font-size: 14px; color: #8c8c8c; }
+@media (max-width: 480px) {
+  .mimiya-feed { padding: 0 12px 32px; }
+  .mimiya-feed .feed-card { padding: 12px 13px; border-radius: 14px; }
+  .mimiya-feed .feed-text { font-size: 14px; }
+}
+/* 专栏首页的归档行 */
+.diary-index { max-width: 640px; margin: 0 auto; }
+.diary-index .day-row {
+  display: flex; align-items: baseline; gap: 10px; padding: 14px 16px; margin-bottom: 12px;
+  background: #fff; border: 1px solid #ececec; border-radius: 16px;
+}
+.diary-index .day-date { font-family: Menlo, Consolas, monospace; font-weight: 700; color: #ff8f3c; font-size: 14px; flex: none; }
+.diary-index .day-link { font-size: 15px; color: #1a1a1a; }
+.diary-index .day-desc { font-size: 13px; color: #9a9a9a; }

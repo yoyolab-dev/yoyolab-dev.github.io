@@ -112,6 +112,11 @@ theme_config:
   menu_icons:
     enable: false
 
+# 注入：手账专栏的信息流样式（微博/X 风）
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/feed.css">
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
