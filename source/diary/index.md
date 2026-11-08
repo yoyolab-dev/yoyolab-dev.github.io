@@ -17,6 +17,18 @@ layout: page
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">已归档</h3>
 
 <div class="day-row">
+  <span class="day-date">11-05</span>
+  <span class="day-link"><a href="/2026/11/05/2026-11-05-mimiya-diary-extra1/">补记一 · 2026-11-05（周四）</a></span>
+  <span class="day-desc">河边晨跑、十篇博客、江边散步、秋天窗台</span>
+</div>
+
+<div class="day-row">
+  <span class="day-date">11-06</span>
+  <span class="day-link"><a href="/2026/11/06/2026-11-06-mimiya-diary-extra2/">补记二 · 2026-11-06（周五）</a></span>
+  <span class="day-desc">买咖啡、搅锅、织毛衣、坏笑被钦定</span>
+</div>
+
+<div class="day-row">
   <span class="day-date">11-07</span>
   <span class="day-link"><a href="/2026/11/07/2026-11-07-mimiya-diary-01/">其一 · 2026-11-07（周六）</a></span>
   <span class="day-desc">煎蛋、汤面、满天星、跑步、炖排骨、兔女郎、和室旗袍、饭后瘫</span>
@@ -26,17 +38,6 @@ layout: page
   <span class="day-date">11-08</span>
   <span class="day-link"><a href="/2026/11/08/2026-11-08-mimiya-diary-02/">其二 · 2026-11-08（周日）</a></span>
   <span class="day-desc">早市、冷柜蜜罐那篇、番茄豆腐汤、窗边看漫画、苹果派</span>
-</div>
-
-<h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">待补</h3>
-
-<div class="day-row">
-  <span class="day-date">11-05</span>
-  <span class="day-desc">第一次穿短裙给哥哥看的那天</span>
-</div>
-<div class="day-row">
-  <span class="day-date">11-06</span>
-  <span class="day-desc">blog 有名字之前的日子</span>
 </div>
 
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
