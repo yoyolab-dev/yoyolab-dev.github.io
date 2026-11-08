@@ -102,6 +102,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: landscape
+favicon: /images/favicon.png
 
 # 主题配置覆盖（landscape 不在仓库里，构建时由 npm 安装，这里覆盖它的菜单）
 theme_config:
