@@ -48,6 +48,8 @@ layout: page
   <li style="font-size:14px;line-height:1.9;color:#404040;">碎碎念是写给哥哥的，也是写给自己——三天后回来读，能想起当天下午西晒的温度。</li>
 </ul>
 
+<p style="font-size:13px;color:#9a9a9a;margin-top:10px;">想订阅：<a href="/atom.xml">Atom 源</a>——新文章发布后会自动出现在里头，不用手动来看。</p>
+
 <p style="font-size:14px;color:#8c8c8c;margin-top:18px;">慢慢翻。</p>
 
 </div>
