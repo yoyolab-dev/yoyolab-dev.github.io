@@ -22,6 +22,12 @@ layout: page
   <span class="day-desc">煎蛋、汤面、满天星、跑步、炖排骨、兔女郎、和室旗袍、饭后瘫</span>
 </div>
 
+<div class="day-row">
+  <span class="day-date">11-08</span>
+  <span class="day-link"><a href="/2026/11/08/2026-11-08-mimiya-diary-02/">其二 · 2026-11-08（周日）</a></span>
+  <span class="day-desc">早市、冷柜蜜罐那篇、番茄豆腐汤、窗边看漫画、苹果派</span>
+</div>
+
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">待补</h3>
 
 <div class="day-row">
