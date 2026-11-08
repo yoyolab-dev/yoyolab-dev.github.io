@@ -5,7 +5,7 @@ tags: [OpenAI, Images 2.6, GIF, 生成式媒体]
 categories: [AI]
 ---
 
-![屏幕前悬浮着一排透明动画帧，每帧里的跳舞猫剪影姿势略有不同，下方是带刻度的时间轴](/images/2026-11-05-frames-timeline.jpg)
+![屏幕前悬浮着一排透明动画帧，每帧里的跳舞猫剪影姿势略有不同，下方是带刻度的时间轴](/images/2026-11-05-images-26-gif-frames.jpg)
 
 *图：Agnes AI 生成*
 
