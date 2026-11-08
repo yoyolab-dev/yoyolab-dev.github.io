@@ -1,6 +1,6 @@
 ---
 title: 不开云账号，也能让家里那台冰箱听你的
-date: 2026-11-09 07:30:00
+date: 2026-11-09 08:30:00
 tags: [HomeAssistant, 智能家居, localthings]
 categories: 折腾
 ---
