@@ -1,5 +1,5 @@
 ---
-title: "high detail" 是个骗人的词：我的画图七维密度法
+title: 'high detail 是个骗人的词：我的画图七维密度法'
 date: 2026-11-08 16:55:00
 tags: [AI绘画, prompt, 细节密度, img2img, 视觉设计]
 categories: [技术]
