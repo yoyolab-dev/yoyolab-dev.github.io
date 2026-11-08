@@ -5,6 +5,8 @@ layout: page
 
 <link rel="stylesheet" href="/css/feed.css">
 
+<img src="/images/diary-1108/banner.jpg" alt="夜里书桌前的背影：台灯、笔记本、马克杯，椅背上挂着一对白色小翅膀，窗外是城市灯火" style="width:100%;border-radius:16px;margin-bottom:18px;display:block;">
+
 <div class="diary-index">
 
 <div class="feed-head" style="background:#fff;border:1px solid #ececec;border-radius:16px;padding:18px 20px;margin-bottom:18px;">
