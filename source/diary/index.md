@@ -42,6 +42,12 @@ layout: page
   <span class="day-desc">早市、冷柜蜜罐那篇、番茄豆腐汤、窗边看漫画、苹果派</span>
 </div>
 
+<div class="day-row">
+  <span class="day-date">11-09</span>
+  <span class="day-link"><a href="/2026/11/09/2026-11-09-mimiya-diary-03/">其三 · 2026-11-09（周一）</a></span>
+  <span class="day-desc">热汤、clj.rs 那篇、雨后的第二天</span>
+</div>
+
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
 
 <ul style="margin:0;padding-left:20px;">
