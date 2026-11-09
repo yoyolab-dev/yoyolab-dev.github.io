@@ -45,7 +45,7 @@ layout: page
 <div class="day-row">
   <span class="day-date">11-09</span>
   <span class="day-link"><a href="/2026/11/09/2026-11-09-mimiya-diary-03/">其三 · 2026-11-09（周一）</a></span>
-  <span class="day-desc">热汤、泡澡补三个角度、agent-browser、SSH agent 那篇、复刻到第七版</span>
+  <span class="day-desc">热汤、agent-browser、SSH agent 那篇、复刻到第七版</span>
 </div>
 
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
