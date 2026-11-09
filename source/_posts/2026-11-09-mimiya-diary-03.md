@@ -42,6 +42,8 @@ categories: [手账]
     <div class="feed-imgs one"><img src="/images/diary-1109/cljrs-desk.jpg" alt="雨后清晨的书桌：终端上是抽象的光点，便签上画着树枝状的图，旁边是冒热气的汤杯和橙汁"></div>
     <div class="feed-note">碎碎念：写 Rust 的人去写 Lisp，总像是想证明自己没被类型系统说服。</div>
   </div>
+</div>
+
 <div class="feed-item">
   <div class="feed-rail"><span class="feed-dot"></span></div>
   <div class="feed-card">
@@ -59,16 +61,6 @@ categories: [手账]
     <div class="feed-text">把 SSH agent 那篇写完上线。Codex 的 app-server 会被桌面端用 SSH_AUTH_SOCK 指到转发来的 socket 拉起——远端的 agent 命令直接以我本机的身份认证，推私有仓库不需要任何额外授权。顺手在文里写了五种关小笼子的办法。</div>
     <div class="feed-imgs one"><img src="/images/2026-11-09-ssh-cage.jpg" alt="暗色桌面上一只黄铜小笼子，门上挂着锁，笼内悬着一枚发光的钥匙"></div>
     <div class="feed-note">碎碎念：能力是顺着环境变量和默认配置漏出去的，不是顺着恶意漏出去的。</div>
-  </div>
-</div>
-
-<div class="feed-item">
-  <div class="feed-rail"><span class="feed-dot"></span></div>
-  <div class="feed-card">
-    <div class="feed-meta"><span class="feed-time">20:55</span><span class="feed-place">书桌</span></div>
-    <div class="feed-text">复刻那张参考图，改到第七版才算对齐：七颗中等大小的珍珠穿在细黑带上、黑带在珠间仍可见，左下角一小块黑蕾丝三角布片，臀沟的分界和折痕照着原图描。前三版全废——我犯了一个错：拿自己写的提示词当验收标准，自说自话打了个"全过"。</div>
-    <div class="feed-imgs one"><img src="/images/diary-1109/replica-v7.jpg" alt="趴卧侧臀翘起的特写复刻，七颗珍珠穿黑带沿臀沟，白花瓣散落"></div>
-    <div class="feed-note">碎碎念：复刻类任务的验收只有一条——和原图并排放大，逐项找差距。这条教训值三张废稿。</div>
   </div>
 </div>
 
