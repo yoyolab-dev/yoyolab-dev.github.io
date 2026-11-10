@@ -1,0 +1,157 @@
+/* ============================================================
+   夜航 Nightfall —— 米米娅的手账 · 夜间皮肤
+   仅在 <html data-skin="night"> 时生效；由页脚按钮切换，
+   状态存 localStorage('miya-skin')，head 内联脚本在首帧前应用。
+   ============================================================ */
+
+/* ---------- 切换按钮（两种皮肤下都在） ---------- */
+#miya-skin-toggle {
+  position: fixed; right: 18px; bottom: 18px; z-index: 9999;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(255, 217, 168, .28);
+  background: rgba(16, 20, 28, .82);
+  color: #ffd9a8; font-size: 20px; line-height: 42px; text-align: center;
+  cursor: pointer; user-select: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  transition: transform .15s ease, background .2s ease;
+}
+#miya-skin-toggle:hover { transform: scale(1.08); background: rgba(30, 37, 52, .9); }
+#miya-skin-toggle:active { transform: scale(.96); }
+
+/* ---------- 夜航：底色与正文 ---------- */
+html[data-skin="night"] body {
+  background: #141822;
+  color: #c6cdd9;
+}
+html[data-skin="night"] body,
+html[data-skin="night"] .article-inner,
+html[data-skin="night"] .archive-article-inner,
+html[data-skin="night"] .feed-card {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+/* ---------- 头图与导航 ---------- */
+html[data-skin="night"] #header { border-bottom-color: #232b39; }
+html[data-skin="night"] #banner { filter: brightness(.55) saturate(1.05); }
+html[data-skin="night"] #logo,
+html[data-skin="night"] #subtitle { color: #f2ede2; }
+html[data-skin="night"] .main-nav-link,
+html[data-skin="night"] .nav-icon { color: #e8e2d6; }
+
+/* ---------- 卡片 ---------- */
+html[data-skin="night"] .article-inner,
+html[data-skin="night"] .archive-article-inner {
+  background: #1c2230;
+  border-color: #2a3242;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+}
+html[data-skin="night"] .article-title { color: #e9edf4; }
+html[data-skin="night"] a.article-title:hover { color: #f0b871; }
+html[data-skin="night"] .archive-article-title { color: #e9edf4; }
+
+/* ---------- 正文 ---------- */
+html[data-skin="night"] .article-entry { color: #c6cdd9; }
+html[data-skin="night"] .article-entry h1,
+html[data-skin="night"] .article-entry h2,
+html[data-skin="night"] .article-entry h3,
+html[data-skin="night"] .article-entry h4,
+html[data-skin="night"] .article-entry h5,
+html[data-skin="night"] .article-entry h6 { color: #e9edf4; }
+html[data-skin="night"] .article-entry a { color: #e0a458; }
+html[data-skin="night"] .article-entry a:hover { color: #f0b871; }
+html[data-skin="night"] .article-entry hr { border-color: #2a3242; }
+html[data-skin="night"] .article-entry strong { color: #e9edf4; }
+html[data-skin="night"] .article-entry blockquote { color: #b9c2d0; }
+html[data-skin="night"] .article-entry th { border-bottom-color: #2a3242; }
+html[data-skin="night"] .article-entry td { border-bottom-color: #262e3c; }
+
+/* 行内代码与代码块 */
+html[data-skin="night"] .article-entry code {
+  background: #262d3c;
+  text-shadow: none;
+  color: #e8c57c;
+}
+html[data-skin="night"] .article-entry pre,
+html[data-skin="night"] .article-entry .highlight {
+  background: #171c27;
+  border-color: #2a3242;
+  color: #c9d1de;
+}
+html[data-skin="night"] .article-entry .highlight .gutter pre { color: #5a6478; }
+
+/* ---------- 元信息 / 侧栏 ---------- */
+html[data-skin="night"] .article-date,
+html[data-skin="night"] .article-category-link,
+html[data-skin="night"] .archive-year,
+html[data-skin="night"] .widget-title,
+html[data-skin="night"] .archive-list-count { color: #8792a3; }
+html[data-skin="night"] .article-category { color: #6f7a8c; text-shadow: none; }
+html[data-skin="night"] .widget a { color: #e0a458; }
+html[data-skin="night"] .tagcloud a {
+  background: #262d3c; color: #c6cdd9;
+  text-shadow: none; border: 1px solid #2a3242;
+}
+
+/* ---------- 搜索框 ---------- */
+html[data-skin="night"] .search-form { background: #20283a; }
+html[data-skin="night"] .search-form-input { color: #c6cdd9; }
+html[data-skin="night"] .search-form-input::placeholder { color: #6f7a8c; }
+html[data-skin="night"] .search-form-submit { color: #8792a3; }
+html[data-skin="night"] .search-form-submit:hover,
+html[data-skin="night"] .search-form-submit:focus { color: #c6cdd9; }
+
+/* ---------- 页脚 ---------- */
+html[data-skin="night"] #footer {
+  background: #10141c;
+  border-top-color: #232b39;
+  color: #7d8798;
+}
+html[data-skin="night"] #footer a { color: #e0a458; }
+
+/* ---------- 手账信息流（feed.css 的夜航版） ---------- */
+html[data-skin="night"] .mimiya-feed .feed-head {
+  background: #1c2230; border-color: #2a3242;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+}
+html[data-skin="night"] .mimiya-feed .feed-head .feed-day { color: #e9edf4; }
+html[data-skin="night"] .mimiya-feed .feed-head .feed-sub { color: #8792a3; }
+html[data-skin="night"] .mimiya-feed .feed-rail::before { background: #2a3242; }
+html[data-skin="night"] .mimiya-feed .feed-dot {
+  background: #ffb066; border-color: #1c2230;
+  box-shadow: 0 0 0 2px rgba(255, 176, 102, .3);
+}
+html[data-skin="night"] .mimiya-feed .feed-card {
+  background: #1c2230; border-color: #2a3242;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+}
+html[data-skin="night"] .mimiya-feed .feed-card:hover { box-shadow: 0 4px 18px rgba(0, 0, 0, .45); }
+html[data-skin="night"] .mimiya-feed .feed-time {
+  color: #ffb066; background: rgba(255, 143, 60, .13);
+}
+html[data-skin="night"] .mimiya-feed .feed-place { color: #8792a3; }
+html[data-skin="night"] .mimiya-feed .feed-text { color: #ccd3de; }
+html[data-skin="night"] .mimiya-feed .feed-imgs img { background: #262d3c; }
+html[data-skin="night"] .mimiya-feed .feed-note {
+  color: #9aa3b2; background: rgba(224, 164, 88, .07);
+  border-left-color: #a8793f;
+}
+html[data-skin="night"] .mimiya-feed .feed-end { background: #1c2230; border-color: #2a3242; }
+html[data-skin="night"] .mimiya-feed .feed-end h3 { color: #e9edf4; }
+html[data-skin="night"] .mimiya-feed .feed-end li { color: #c6cdd9; }
+html[data-skin="night"] .mimiya-feed .feed-end .feed-bye { color: #8792a3; }
+
+/* 手账专栏首页（部分元素带内联样式，需要 !important 压过去） */
+html[data-skin="night"] .diary-index .feed-head[style] {
+  background: #1c2230 !important; border-color: #2a3242 !important;
+}
+html[data-skin="night"] .diary-index h3[style] { color: #e9edf4 !important; }
+html[data-skin="night"] .diary-index p[style] { color: #c6cdd9 !important; }
+html[data-skin="night"] .diary-index li[style] { color: #c6cdd9 !important; }
+html[data-skin="night"] .diary-index .day-row {
+  background: #1c2230; border-color: #2a3242;
+}
+html[data-skin="night"] .diary-index .day-link { color: #e9edf4; }
+html[data-skin="night"] .diary-index .day-link a { color: #e9edf4; }
+html[data-skin="night"] .diary-index .day-link a:hover { color: #f0b871; }
+html[data-skin="night"] .diary-index .day-desc { color: #8792a3; }

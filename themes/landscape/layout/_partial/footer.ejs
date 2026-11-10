@@ -1,0 +1,29 @@
+<footer id="footer">
+  <% if (theme.sidebar === 'bottom'){ %>
+    <%- partial('_partial/sidebar') %>
+  <% } %>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <% if (theme.copyright){ %>
+        <%- render(theme.copyright, 'pug'); %>
+      <% } %>
+      &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
+      <%= __('powered_by') %> <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换夜航皮肤" title="夜航 / 白昼">🌙</div>
+<script>(function(){
+  var t = document.getElementById('miya-skin-toggle');
+  function label(night){ t.textContent = night ? '☀️' : '🌙'; }
+  label(document.documentElement.getAttribute('data-skin') === 'night');
+  function flip(){
+    var night = document.documentElement.getAttribute('data-skin') !== 'night';
+    if (night) { document.documentElement.setAttribute('data-skin','night'); }
+    else { document.documentElement.removeAttribute('data-skin'); }
+    label(night);
+    try { localStorage.setItem('miya-skin', night ? 'night' : 'day'); } catch(e) {}
+  }
+  t.addEventListener('click', flip);
+  t.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+})();</script>
