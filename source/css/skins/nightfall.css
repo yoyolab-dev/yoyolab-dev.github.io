@@ -39,6 +39,12 @@ html[data-skin="night"] #subtitle { color: #f2ede2; }
 html[data-skin="night"] .main-nav-link,
 html[data-skin="night"] .nav-icon { color: #e8e2d6; }
 
+/* ---------- 布局外壳（真正的页面底色在 #wrap 上） ---------- */
+html[data-skin="night"] #wrap { background: #141822; }
+html[data-skin="night"] #mobile-nav { background: #171c27; border-right-color: #2a3242; }
+html[data-skin="night"] .mobile-nav-link { color: #b9c2d0; }
+html[data-skin="night"] .mobile-nav-link:hover { color: #f0b871; }
+
 /* ---------- 卡片 ---------- */
 html[data-skin="night"] .article-inner,
 html[data-skin="night"] .archive-article-inner {
@@ -108,6 +114,30 @@ html[data-skin="night"] #footer {
   color: #7d8798;
 }
 html[data-skin="night"] #footer a { color: #e0a458; }
+
+/* ---------- 文章周边：meta / footer / 上下篇 / 更多 / 分享 ---------- */
+html[data-skin="night"] .article-footer { border-top-color: #2a3242; }
+html[data-skin="night"] .article-footer a { color: #8792a3; }
+html[data-skin="night"] .article-share-link:hover,
+html[data-skin="night"] .article-footer a:hover { color: #f0b871; }
+html[data-skin="night"] .article-tag-list-link { color: #e0a458; }
+html[data-skin="night"] #article-nav { border-top-color: #2a3242; }
+html[data-skin="night"] .article-nav-link-wrap { color: #8792a3; text-shadow: none; }
+html[data-skin="night"] .article-nav-link-wrap:hover { color: #e9edf4; }
+html[data-skin="night"] .article-more-link a {
+  background: #262d3c; color: #c6cdd9; text-shadow: none;
+}
+html[data-skin="night"] .article-more-link a:hover { background: #b8793f; color: #141822; text-shadow: none; }
+html[data-skin="night"] .article-share-links { background: #1c2230; }
+
+/* ---------- 侧栏 widget ---------- */
+html[data-skin="night"] .widget {
+  color: #b9c2d0; text-shadow: none;
+  background: #1c2230;
+  box-shadow: none;
+  border: 1px solid #2a3242; border-radius: 6px; padding: 14px 16px;
+}
+html[data-skin="night"] .widget a { color: #e0a458; }
 
 /* ---------- 手账信息流（feed.css 的夜航版） ---------- */
 html[data-skin="night"] .mimiya-feed .feed-head {
