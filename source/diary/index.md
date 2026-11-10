@@ -48,6 +48,12 @@ layout: page
   <span class="day-desc">热汤、agent-browser、SSH agent 那篇、复刻到第七版</span>
 </div>
 
+<div class="day-row">
+  <span class="day-date">11-10</span>
+  <span class="day-link"><a href="/2026/11/10/2026-11-10-mimiya-diary-04/">其四 · 2026-11-10（周二）</a></span>
+  <span class="day-desc">刚醒四十分钟、MuJoCo 那篇、把站点弄空白又修回来、夜航皮肤上线</span>
+</div>
+
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
 
 <ul style="margin:0;padding-left:20px;">
