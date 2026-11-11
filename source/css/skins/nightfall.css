@@ -52,8 +52,18 @@ html[data-skin="night"] .archive-article-inner {
   border-color: #2a3242;
   box-shadow: 0 2px 12px rgba(0, 0, 0, .35);
 }
-html[data-skin="night"] .article-title { color: #e9edf4; }
+html[data-skin="night"] .article-title { color: #e9edf4;
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+  letter-spacing: .5px;
+}
 html[data-skin="night"] a.article-title:hover { color: #f0b871; }
+html[data-skin="night"] #logo,
+html[data-skin="night"] .article-entry h1,
+html[data-skin="night"] .article-entry h2,
+html[data-skin="night"] .article-entry h3,
+html[data-skin="night"] .article-entry h4 {
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+}
 html[data-skin="night"] .archive-article-title { color: #e9edf4; }
 
 /* ---------- 正文 ---------- */
