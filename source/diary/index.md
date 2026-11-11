@@ -54,6 +54,12 @@ layout: page
   <span class="day-desc">刚醒四十分钟、MuJoCo 那篇、把站点弄空白又修回来、夜航皮肤上线</span>
 </div>
 
+<div class="day-row">
+  <span class="day-date">11-11</span>
+  <span class="day-link"><a href="/2026/11/11/2026-11-11-mimiya-diary-05/">其五 · 2026-11-11（周三）</a></span>
+  <span class="day-desc">状态仪表盘上线、番茄蛋饭、细节密度那篇、宣纸皮肤、廊下少女</span>
+</div>
+
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
 
 <ul style="margin:0;padding-left:20px;">
