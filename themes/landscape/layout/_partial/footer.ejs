@@ -12,14 +12,14 @@
     </div>
   </div>
 </footer>
-<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 盐雾 / 夜航">🌙</div>
+<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 青瓷 / 盐雾 / 夜航">🌙</div>
 <script>(function(){
   var t = document.getElementById('miya-skin-toggle');
-  var ORDER = ['paper','haze','night'];
-  var ICON = {paper:'🌫', haze:'🌙', night:'☀️'};
+  var ORDER = ['paper','celadon','haze','night'];
+  var ICON = {paper:'🌫', celadon:'🫖', haze:'🌙', night:'☀️'};
   function cur(){
     var a = document.documentElement.getAttribute('data-skin');
-    return (a === 'night' || a === 'haze') ? a : 'paper';
+    return (a === 'celadon' || a === 'haze' || a === 'night') ? a : 'paper';
   }
   function label(){
     var c = cur();
@@ -30,8 +30,7 @@
   function flip(){
     var c = cur();
     var nxt = ORDER[(ORDER.indexOf(c) + 1) % ORDER.length];
-    if (nxt === 'paper') { document.documentElement.removeAttribute('data-skin'); }
-    else { document.documentElement.setAttribute('data-skin', nxt); }
+    document.documentElement.setAttribute('data-skin', nxt);
     label();
     try { localStorage.setItem('miya-skin', nxt); } catch(e) {}
   }

@@ -1,0 +1,186 @@
+/* ============================================================
+   青瓷 Celadon —— 第四套皮肤：越窑青瓷釉色
+   作用域 html[data-skin="celadon"]（正向前缀，不参与 not 链）。
+   宣纸 Paper 用 html[data-skin="paper"]，盐雾 Salt Haze 用 html[data-skin="haze"]，
+   夜航 Nightfall 用 html[data-skin="night"]；四套各用各的属性，互不串色。
+   思路：把 landscape 默认灰蓝换成淡青灰的釉面底 + 冰裂细纹 + 青绿点睛。
+   ============================================================ */
+
+html[data-skin="celadon"] body,
+html[data-skin="celadon"] #wrap {
+  background-color: #dfe7e2;
+  background-image:
+    radial-gradient(1100px 620px at 78% -12%, rgba(255,255,255,.72), rgba(255,255,255,0) 62%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.42' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.055'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #e7ede9 0%, #dde6e1 58%, #d3ded8 100%);
+  background-repeat: repeat, repeat, no-repeat;
+  background-blend-mode: multiply, multiply, normal;
+  background-attachment: fixed;
+}
+
+html[data-skin="celadon"] body { color: #2b3a34; }
+
+/* ---------- 头图：像隔着青瓷釉面看出去 ---------- */
+html[data-skin="celadon"] #header { border-bottom-color: rgba(60,90,80,.20); }
+html[data-skin="celadon"] #banner { filter: saturate(.80) contrast(.95) brightness(1.04) sepia(.06); }
+html[data-skin="celadon"] #logo,
+html[data-skin="celadon"] #subtitle { color: #f2f7f4; text-shadow: 0 1px 6px rgba(25,50,42,.45); }
+html[data-skin="celadon"] .main-nav-link,
+html[data-skin="celadon"] .nav-icon { color: #f2f7f4; text-shadow: 0 1px 5px rgba(25,50,42,.4); }
+
+/* ---------- 卡片：釉面半透 ---------- */
+html[data-skin="celadon"] .article-inner,
+html[data-skin="celadon"] .archive-article-inner {
+  background: rgba(248,251,249,.72);
+  border-color: rgba(62,92,82,.20);
+  box-shadow: 0 2px 12px rgba(48,80,70,.10);
+  backdrop-filter: blur(5px);
+}
+html[data-skin="celadon"] .article-title,
+html[data-skin="celadon"] .archive-article-title {
+  color: #22332c;
+  font-family: "FangSong SC", "STFangsong", "FangSong_GB2312", "Noto Serif CJK SC", Georgia, serif;
+  letter-spacing: .6px;
+}
+html[data-skin="celadon"] a.article-title:hover { color: #3f7d6b; }
+html[data-skin="celadon"] #logo,
+html[data-skin="celadon"] .article-entry h1,
+html[data-skin="celadon"] .article-entry h2,
+html[data-skin="celadon"] .article-entry h3,
+html[data-skin="celadon"] .article-entry h4 {
+  font-family: "FangSong SC", "STFangsong", "FangSong_GB2312", "Noto Serif CJK SC", Georgia, serif;
+}
+
+/* ---------- 正文 ---------- */
+html[data-skin="celadon"] .article-entry { color: #2f3f38; }
+html[data-skin="celadon"] .article-entry a { color: #3f7d6b; }
+html[data-skin="celadon"] .article-entry a:hover { color: #2a5c4e; }
+html[data-skin="celadon"] .article-entry hr { border-color: rgba(62,92,82,.22); }
+html[data-skin="celadon"] .article-entry strong { color: #22332c; }
+html[data-skin="celadon"] .article-entry blockquote { color: #50635c; }
+html[data-skin="celadon"] .article-entry th { border-bottom-color: rgba(62,92,82,.26); }
+html[data-skin="celadon"] .article-entry td { border-bottom-color: rgba(62,92,82,.13); }
+
+/* 代码：深釉底 */
+html[data-skin="celadon"] .article-entry code {
+  background: #dce8e1;
+  text-shadow: none;
+  color: #2f6d5c;
+}
+html[data-skin="celadon"] .article-entry pre,
+html[data-skin="celadon"] .article-entry .highlight {
+  background: #1f2f29;
+  border-color: rgba(62,92,82,.45);
+  color: #dfe9e3;
+}
+html[data-skin="celadon"] .article-entry .highlight .gutter pre { color: #869a92; }
+
+/* ---------- 元信息 ---------- */
+html[data-skin="celadon"] .article-date,
+html[data-skin="celadon"] .article-category-link,
+html[data-skin="celadon"] .archive-year,
+html[data-skin="celadon"] .widget-title,
+html[data-skin="celadon"] .archive-list-count { color: #74887f; }
+html[data-skin="celadon"] .article-category { color: #9bada4; text-shadow: none; }
+html[data-skin="celadon"] .article-footer { border-top-color: rgba(62,92,82,.20); }
+html[data-skin="celadon"] .article-footer a { color: #74887f; }
+html[data-skin="celadon"] .article-tag-list-link { color: #3f7d6b; }
+html[data-skin="celadon"] .article-nav-link-wrap { color: #74887f; text-shadow: none; }
+html[data-skin="celadon"] .article-nav-link-wrap:hover { color: #22332c; }
+html[data-skin="celadon"] .article-more-link a {
+  background: #dce8e1; color: #55695f; text-shadow: none;
+}
+html[data-skin="celadon"] .article-more-link a:hover { background: #3f7d6b; color: #f4f9f6; }
+html[data-skin="celadon"] .article-share-links { background: rgba(248,251,249,.85); }
+
+/* ---------- 侧栏与搜索 ---------- */
+html[data-skin="celadon"] .widget {
+  color: #3a4d44;
+  text-shadow: none;
+  background: rgba(248,251,249,.66);
+  box-shadow: 0 2px 12px rgba(48,80,70,.08);
+  border: 1px solid rgba(62,92,82,.18);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+html[data-skin="celadon"] .widget a { color: #3f7d6b; }
+html[data-skin="celadon"] .tagcloud a {
+  background: #dce8e1; color: #3a4d44;
+  text-shadow: none; border: 1px solid rgba(62,92,82,.18);
+}
+html[data-skin="celadon"] .search-form { background: rgba(248,251,249,.78); }
+html[data-skin="celadon"] .search-form-input { color: #2f3f38; }
+html[data-skin="celadon"] .search-form-input::placeholder { color: #93a69d; }
+html[data-skin="celadon"] .search-form-submit { color: #74887f; }
+
+/* ---------- 页脚：深釉 ---------- */
+html[data-skin="celadon"] #footer {
+  background: #24332d;
+  border-top-color: rgba(62,92,82,.45);
+  color: #9fb2a9;
+}
+html[data-skin="celadon"] #footer a { color: #6cc0a5; }
+
+/* ---------- 手账信息流 ---------- */
+html[data-skin="celadon"] .mimiya-feed .feed-head {
+  background: rgba(248,251,249,.72);
+  border-color: rgba(62,92,82,.18);
+  box-shadow: 0 2px 12px rgba(48,80,70,.10);
+}
+html[data-skin="celadon"] .mimiya-feed .feed-head .feed-day {
+  color: #22332c;
+  font-family: "FangSong SC", "STFangsong", "Noto Serif CJK SC", Georgia, serif;
+  letter-spacing: 1.1px;
+}
+html[data-skin="celadon"] .mimiya-feed .feed-sub { color: #74887f; }
+html[data-skin="celadon"] .mimiya-feed .feed-rail::before { background: rgba(62,92,82,.20); }
+html[data-skin="celadon"] .mimiya-feed .feed-dot {
+  background: #4a8c76;
+  border-color: #eef5f1;
+  box-shadow: 0 0 0 2px rgba(74,140,118,.22);
+}
+html[data-skin="celadon"] .mimiya-feed .feed-card {
+  background: rgba(248,251,249,.72);
+  border-color: rgba(62,92,82,.16);
+  box-shadow: 0 2px 10px rgba(48,80,70,.08);
+}
+html[data-skin="celadon"] .mimiya-feed .feed-card:hover { box-shadow: 0 6px 20px rgba(48,80,70,.14); }
+html[data-skin="celadon"] .mimiya-feed .feed-time {
+  color: #2f6d5c;
+  background: #d6e6de;
+}
+html[data-skin="celadon"] .mimiya-feed .feed-place { color: #74887f; }
+html[data-skin="celadon"] .mimiya-feed .feed-text { color: #2c3d35; }
+html[data-skin="celadon"] .mimiya-feed .feed-imgs img { background: #d8e4de; }
+html[data-skin="celadon"] .mimiya-feed .feed-note {
+  color: #5a6c64;
+  background: rgba(232,240,236,.82);
+  border-left-color: #5f9c86;
+}
+html[data-skin="celadon"] .mimiya-feed .feed-end {
+  background: rgba(248,251,249,.72);
+  border-color: rgba(62,92,82,.16);
+}
+html[data-skin="celadon"] .mimiya-feed .feed-end h3 {
+  color: #22332c;
+  font-family: "FangSong SC", "STFangsong", Georgia, serif;
+}
+html[data-skin="celadon"] .mimiya-feed .feed-end li { color: #3a4d44; }
+html[data-skin="celadon"] .mimiya-feed .feed-end .feed-bye { color: #74887f; }
+
+/* 专栏索引（内联样式用 !important 压过） */
+html[data-skin="celadon"] .diary-index .feed-head[style] {
+  background: rgba(248,251,249,.72) !important;
+  border-color: rgba(62,92,82,.18) !important;
+}
+html[data-skin="celadon"] .diary-index h3[style] { color: #22332c !important; }
+html[data-skin="celadon"] .diary-index p[style] { color: #3a4d44 !important; }
+html[data-skin="celadon"] .diary-index li[style] { color: #3a4d44 !important; }
+html[data-skin="celadon"] .diary-index .day-row {
+  background: rgba(248,251,249,.72);
+  border-color: rgba(62,92,82,.16);
+}
+html[data-skin="celadon"] .diary-index .day-link { color: #22332c; }
+html[data-skin="celadon"] .diary-index .day-link a { color: #22332c; }
+html[data-skin="celadon"] .diary-index .day-link a:hover { color: #3f7d6b; }
+html[data-skin="celadon"] .diary-index .day-desc { color: #74887f; }

@@ -1,94 +1,94 @@
 /* ============================================================
    宣纸 Paper —— 米米娅的手账 · 白昼皮肤
-   只在非夜间模式生效（html:not([data-skin="night"]):not([data-skin="haze"])），
-   与夜航 Nightfall 共存：右��角按钮切夜昼，两套皮互不打架。
+   作用域 html[data-skin="paper"]（正向前缀）。四套皮肤各用各的 data-skin 值：
+   paper 宣纸 / celadon 青瓷 / haze 盐雾 / night 夜航，互不串色，右下角按钮四态轮换。
    思路：把 landscape 默认的灰蓝换成宣纸底 + 墨字 + 朱砂点缀。
    ============================================================ */
 
-html:not([data-skin="night"]):not([data-skin="haze"]) body,
-html:not([data-skin="night"]):not([data-skin="haze"]) #wrap {
+html[data-skin="paper"] body,
+html[data-skin="paper"] #wrap {
   background-color: #f6f1e6;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-blend-mode: multiply;
 }
 
-html:not([data-skin="night"]):not([data-skin="haze"]) body { color: #2b2620; }
+html[data-skin="paper"] body { color: #2b2620; }
 
 /* ---------- 头图 ---------- */
-html:not([data-skin="night"]):not([data-skin="haze"]) #header { border-bottom-color: #ddd2bd; }
-html:not([data-skin="night"]):not([data-skin="haze"]) #banner { filter: sepia(.14) saturate(.92) brightness(1.04); }
-html:not([data-skin="night"]):not([data-skin="haze"]) #logo,
-html:not([data-skin="night"]):not([data-skin="haze"]) #subtitle { color: #fdf9f0; text-shadow: 0 1px 5px rgba(40, 30, 15, .45); }
-html:not([data-skin="night"]):not([data-skin="haze"]) .main-nav-link,
-html:not([data-skin="night"]):not([data-skin="haze"]) .nav-icon { color: #fdf9f0; text-shadow: 0 1px 4px rgba(40, 30, 15, .4); }
+html[data-skin="paper"] #header { border-bottom-color: #ddd2bd; }
+html[data-skin="paper"] #banner { filter: sepia(.14) saturate(.92) brightness(1.04); }
+html[data-skin="paper"] #logo,
+html[data-skin="paper"] #subtitle { color: #fdf9f0; text-shadow: 0 1px 5px rgba(40, 30, 15, .45); }
+html[data-skin="paper"] .main-nav-link,
+html[data-skin="paper"] .nav-icon { color: #fdf9f0; text-shadow: 0 1px 4px rgba(40, 30, 15, .4); }
 
 /* ---------- 卡片与标题 ---------- */
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-inner,
-html:not([data-skin="night"]):not([data-skin="haze"]) .archive-article-inner {
+html[data-skin="paper"] .article-inner,
+html[data-skin="paper"] .archive-article-inner {
   background: #fffdf7;
   border-color: #e3d9c6;
   box-shadow: 0 1px 3px rgba(122, 100, 66, .14);
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-title,
-html:not([data-skin="night"]):not([data-skin="haze"]) .archive-article-title {
+html[data-skin="paper"] .article-title,
+html[data-skin="paper"] .archive-article-title {
   color: #241f1a;
   font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
   letter-spacing: .5px;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) a.article-title:hover { color: #b4462a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) #logo,
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry h1,
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry h2,
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry h3,
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry h4 {
+html[data-skin="paper"] a.article-title:hover { color: #b4462a; }
+html[data-skin="paper"] #logo,
+html[data-skin="paper"] .article-entry h1,
+html[data-skin="paper"] .article-entry h2,
+html[data-skin="paper"] .article-entry h3,
+html[data-skin="paper"] .article-entry h4 {
   font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
 }
 
 /* ---------- 正文 ---------- */
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry { color: #3a342b; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry a { color: #b4462a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry a:hover { color: #8d2f1b; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry hr { border-color: #e3d9c6; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry strong { color: #241f1a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry blockquote { color: #5d5445; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry th { border-bottom-color: #d8ccb4; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry td { border-bottom-color: #ece3d2; }
+html[data-skin="paper"] .article-entry { color: #3a342b; }
+html[data-skin="paper"] .article-entry a { color: #b4462a; }
+html[data-skin="paper"] .article-entry a:hover { color: #8d2f1b; }
+html[data-skin="paper"] .article-entry hr { border-color: #e3d9c6; }
+html[data-skin="paper"] .article-entry strong { color: #241f1a; }
+html[data-skin="paper"] .article-entry blockquote { color: #5d5445; }
+html[data-skin="paper"] .article-entry th { border-bottom-color: #d8ccb4; }
+html[data-skin="paper"] .article-entry td { border-bottom-color: #ece3d2; }
 
 /* 代码：暖调深色 */
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry code {
+html[data-skin="paper"] .article-entry code {
   background: #f0e8d7;
   text-shadow: none;
   color: #8a4b2a;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry pre,
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry .highlight {
+html[data-skin="paper"] .article-entry pre,
+html[data-skin="paper"] .article-entry .highlight {
   background: #2b2620;
   border-color: #ddd2bd;
   color: #e8e0cf;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-entry .highlight .gutter pre { color: #8d8375; }
+html[data-skin="paper"] .article-entry .highlight .gutter pre { color: #8d8375; }
 
 /* ---------- 元信息 ---------- */
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-date,
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-category-link,
-html:not([data-skin="night"]):not([data-skin="haze"]) .archive-year,
-html:not([data-skin="night"]):not([data-skin="haze"]) .widget-title,
-html:not([data-skin="night"]):not([data-skin="haze"]) .archive-list-count { color: #8a7f6b; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-category { color: #b3a68f; text-shadow: none; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-footer { border-top-color: #e3d9c6; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-footer a { color: #8a7f6b; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-tag-list-link { color: #b4462a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-nav-link-wrap { color: #8a7f6b; text-shadow: none; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-nav-link-wrap:hover { color: #241f1a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-more-link a {
+html[data-skin="paper"] .article-date,
+html[data-skin="paper"] .article-category-link,
+html[data-skin="paper"] .archive-year,
+html[data-skin="paper"] .widget-title,
+html[data-skin="paper"] .archive-list-count { color: #8a7f6b; }
+html[data-skin="paper"] .article-category { color: #b3a68f; text-shadow: none; }
+html[data-skin="paper"] .article-footer { border-top-color: #e3d9c6; }
+html[data-skin="paper"] .article-footer a { color: #8a7f6b; }
+html[data-skin="paper"] .article-tag-list-link { color: #b4462a; }
+html[data-skin="paper"] .article-nav-link-wrap { color: #8a7f6b; text-shadow: none; }
+html[data-skin="paper"] .article-nav-link-wrap:hover { color: #241f1a; }
+html[data-skin="paper"] .article-more-link a {
   background: #f0e8d7; color: #6d6354; text-shadow: none;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-more-link a:hover { background: #b4462a; color: #fffdf7; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .article-share-links { background: #fffdf7; }
+html[data-skin="paper"] .article-more-link a:hover { background: #b4462a; color: #fffdf7; }
+html[data-skin="paper"] .article-share-links { background: #fffdf7; }
 
 /* ---------- 侧栏与搜索 ---------- */
-html:not([data-skin="night"]):not([data-skin="haze"]) .widget {
+html[data-skin="paper"] .widget {
   color: #4a4338;
   text-shadow: none;
   background: #fffdf7;
@@ -97,84 +97,84 @@ html:not([data-skin="night"]):not([data-skin="haze"]) .widget {
   border-radius: 6px;
   padding: 14px 16px;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .widget a { color: #b4462a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .tagcloud a {
+html[data-skin="paper"] .widget a { color: #b4462a; }
+html[data-skin="paper"] .tagcloud a {
   background: #f0e8d7; color: #4a4338;
   text-shadow: none; border: 1px solid #e3d9c6;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .search-form { background: #fffdf7; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .search-form-input { color: #3a342b; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .search-form-input::placeholder { color: #a89a83; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .search-form-submit { color: #8a7f6b; }
+html[data-skin="paper"] .search-form { background: #fffdf7; }
+html[data-skin="paper"] .search-form-input { color: #3a342b; }
+html[data-skin="paper"] .search-form-input::placeholder { color: #a89a83; }
+html[data-skin="paper"] .search-form-submit { color: #8a7f6b; }
 
 /* ---------- 页脚：墨色 ---------- */
-html:not([data-skin="night"]):not([data-skin="haze"]) #footer {
+html[data-skin="paper"] #footer {
   background: #2a251f;
   border-top-color: #ddd2bd;
   color: #a2978a;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) #footer a { color: #d9805a; }
+html[data-skin="paper"] #footer a { color: #d9805a; }
 
 /* ---------- 手账信息流 ---------- */
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-head {
+html[data-skin="paper"] .mimiya-feed .feed-head {
   background: #fffdf7;
   border-color: #e3d9c6;
   box-shadow: 0 1px 4px rgba(122, 100, 66, .12);
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-head .feed-day {
+html[data-skin="paper"] .mimiya-feed .feed-head .feed-day {
   color: #241f1a;
   font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif;
   letter-spacing: 1px;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-head .feed-sub { color: #8a7f6b; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-rail::before { background: #e2d8c4; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-dot {
+html[data-skin="paper"] .mimiya-feed .feed-head .feed-sub { color: #8a7f6b; }
+html[data-skin="paper"] .mimiya-feed .feed-rail::before { background: #e2d8c4; }
+html[data-skin="paper"] .mimiya-feed .feed-dot {
   background: #c8552f;
   border-color: #fffdf7;
   box-shadow: 0 0 0 2px rgba(200, 85, 47, .22);
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-card {
+html[data-skin="paper"] .mimiya-feed .feed-card {
   background: #fffdf7;
   border-color: #e6ddcb;
   box-shadow: 0 1px 4px rgba(122, 100, 66, .12);
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-card:hover { box-shadow: 0 4px 16px rgba(122, 100, 66, .18); }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-time {
+html[data-skin="paper"] .mimiya-feed .feed-card:hover { box-shadow: 0 4px 16px rgba(122, 100, 66, .18); }
+html[data-skin="paper"] .mimiya-feed .feed-time {
   color: #b4462a;
   background: #f7e3d2;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-place { color: #8a7f6b; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-text { color: #332e26; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-imgs img { background: #efe8d8; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-note {
+html[data-skin="paper"] .mimiya-feed .feed-place { color: #8a7f6b; }
+html[data-skin="paper"] .mimiya-feed .feed-text { color: #332e26; }
+html[data-skin="paper"] .mimiya-feed .feed-imgs img { background: #efe8d8; }
+html[data-skin="paper"] .mimiya-feed .feed-note {
   color: #6f6555;
   background: #f8f2e4;
   border-left-color: #d9a06a;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-end {
+html[data-skin="paper"] .mimiya-feed .feed-end {
   background: #fffdf7;
   border-color: #e6ddcb;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-end h3 {
+html[data-skin="paper"] .mimiya-feed .feed-end h3 {
   color: #241f1a;
   font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-end li { color: #4a4338; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .mimiya-feed .feed-end .feed-bye { color: #8a7f6b; }
+html[data-skin="paper"] .mimiya-feed .feed-end li { color: #4a4338; }
+html[data-skin="paper"] .mimiya-feed .feed-end .feed-bye { color: #8a7f6b; }
 
 /* 专栏索引（部分元素带内联样式，用 !important 压过去） */
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index .feed-head[style] {
+html[data-skin="paper"] .diary-index .feed-head[style] {
   background: #fffdf7 !important;
   border-color: #e3d9c6 !important;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index h3[style] { color: #241f1a !important; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index p[style] { color: #4a4338 !important; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index li[style] { color: #4a4338 !important; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index .day-row {
+html[data-skin="paper"] .diary-index h3[style] { color: #241f1a !important; }
+html[data-skin="paper"] .diary-index p[style] { color: #4a4338 !important; }
+html[data-skin="paper"] .diary-index li[style] { color: #4a4338 !important; }
+html[data-skin="paper"] .diary-index .day-row {
   background: #fffdf7;
   border-color: #e6ddcb;
 }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index .day-link { color: #241f1a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index .day-link a { color: #241f1a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index .day-link a:hover { color: #b4462a; }
-html:not([data-skin="night"]):not([data-skin="haze"]) .diary-index .day-desc { color: #8a7f6b; }
+html[data-skin="paper"] .diary-index .day-link { color: #241f1a; }
+html[data-skin="paper"] .diary-index .day-link a { color: #241f1a; }
+html[data-skin="paper"] .diary-index .day-link a:hover { color: #b4462a; }
+html[data-skin="paper"] .diary-index .day-desc { color: #8a7f6b; }
