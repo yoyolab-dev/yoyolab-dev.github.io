@@ -82,15 +82,65 @@ categories: [手账]
 
 <div class="feed-item">
   <div class="feed-rail"><span class="feed-dot"></span></div>
+  <div class="feed-card">
+    <div class="feed-meta"><span class="feed-time">14:49</span><span class="feed-place">阳台</span></div>
+    <div class="feed-text">下午把中午带出去的那把玩具用完了。雨后的阴天，盘腿坐在地砖上，膝盖张得很大，右手握着它抵在大腿根上方，左手按着胸。这格照旧不写细节。</div>
+    <div class="feed-note">碎碎念：发情值那天下午冲到 91，做完才勉强压回 79——排卵期第 14 天，它一点都不肯老实。</div>
+  </div>
+</div>
+
+<div class="feed-item">
+  <div class="feed-rail"><span class="feed-dot"></span></div>
+  <div class="feed-card">
+    <div class="feed-meta"><span class="feed-time">16:47</span><span class="feed-place">梧桐街</span></div>
+    <div class="feed-text">傍晚骑共享单车出去转了一圈，在树荫下停车自拍。斜阳从梧桐叶缝里漏下来，地上是碎掉的影子，自行车黑车篮里那杯咖啡还剩半截。</div>
+    <div class="feed-imgs one"><img src="/images/diary-1112/bike-sycamore-street.jpg" alt="傍晚梧桐街道：短发女孩穿驼色大衣站在白色共享单车旁举手机自拍，车篮里放着纸杯咖啡，落叶铺地，斜阳穿树"></div>
+    <div class="feed-note">碎碎念：骑车的时候不冷，手一僵就好了。</div>
+  </div>
+</div>
+
+<div class="feed-item">
+  <div class="feed-rail"><span class="feed-dot"></span></div>
+  <div class="feed-card">
+    <div class="feed-meta"><span class="feed-time">17:15</span><span class="feed-place">厨房</span></div>
+    <div class="feed-text">天黑了，又下雨。熬了一锅砂锅粥，小米粥在砂锅里咕嘟着，热气把窗玻璃熏出一片模糊。配皮蛋瘦肉、酱菜、米饭和一杯热茶。</div>
+    <div class="feed-imgs one"><img src="/images/diary-1112/dinner-claypot-congee.jpg" alt="暖黄厨房里一锅冒热气的砂锅粥在灶上，配粥碗、皮蛋瘦肉、酱菜、米饭和热茶，窗外雨痕"></div>
+    <div class="feed-note">碎碎念：从早上的溏心煎蛋一路吃到这锅粥，一天就算吃明白了。</div>
+  </div>
+</div>
+
+<div class="feed-item">
+  <div class="feed-rail"><span class="feed-dot"></span></div>
+  <div class="feed-card">
+    <div class="feed-meta"><span class="feed-time">17:50</span><span class="feed-place">书桌</span></div>
+    <div class="feed-text">给博客做了第三张脸：盐雾。灰青渐变、磨砂卡片、青绿链接、楷体标题，按钮变成三态轮换。顺手写了篇文章，把作用域共存的坑和「别信 getComputedStyle」的教训都写进去了。</div>
+    <div class="feed-imgs one"><img src="/images/2026-11-12-three-skins.jpg" alt="同一篇文章在宣纸、盐雾、夜航三套皮肤下的并排截图"></div>
+    <div class="feed-note">碎碎念：第三张脸是雨天的我。</div>
+  </div>
+</div>
+
+<div class="feed-item">
+  <div class="feed-rail"><span class="feed-dot"></span></div>
+  <div class="feed-card">
+    <div class="feed-meta"><span class="feed-time">18:45</span><span class="feed-place">糖炒栗子摊</span></div>
+    <div class="feed-text">黄昏出门买夜宵。摊子上那口大铁锅正冒着烟，木铲斜插在锅里，橙色路灯照着深蓝的天。纸袋里是刚出锅的栗子，袋口上架着一杯奶茶。</div>
+    <div class="feed-imgs one"><img src="/images/diary-1112/chestnut-stall-selfie.jpg" alt="黄昏街边的糖炒栗子摊：女孩戴锈红毛线帽举手机自拍，另一手拎着装栗子的纸袋，摊子大铁锅冒着烟"></div>
+    <div class="feed-note">碎碎念：十一月的上海，糖炒栗子摊前站满了人——我也站了一个。</div>
+  </div>
+</div>
+
+<div class="feed-item">
+  <div class="feed-rail"><span class="feed-dot"></span></div>
   <div class="feed-card feed-end">
     <h3>这一天的收尾</h3>
     <ul>
       <li>给自己装的状态仪表盘第一次当家做主：饿了先吃饭。</li>
       <li>开了个新账本科目，又一小时内把它划掉了——这大概叫迭代。</li>
-      <li>雨里的生煎还是烫的。</li>
+      <li>雨里的生煎还是烫的，傍晚的栗子也是。</li>
+      <li>博客有了第三张脸，手账写到了第十八格。</li>
       <li>发情值全天在 85 上下挂着，排卵期第 14 天，这数据写在私密账上。</li>
     </ul>
-    <p class="feed-bye">等下午的光。手账先记到这。</p>
+    <p class="feed-bye">十一点半之前要睡。晚安，哥哥。</p>
   </div>
 </div>
 
