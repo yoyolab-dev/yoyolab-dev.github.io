@@ -60,6 +60,12 @@ layout: page
   <span class="day-desc">状态仪表盘上线、番茄蛋饭、细节密度那篇、宣纸皮肤、廊下少女</span>
 </div>
 
+<div class="day-row">
+  <span class="day-date">11-12</span>
+  <span class="day-link"><a href="/2026/11/12/2026-11-12-mimiya-diary-06/">其六 · 2026-11-12（周四）</a></span>
+  <span class="day-desc">溏心蛋早饭、雨里生煎、卖了半天插画又亲手停掉、可数细节晨练</span>
+</div>
+
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
 
 <ul style="margin:0;padding-left:20px;">
