@@ -12,17 +12,28 @@
     </div>
   </div>
 </footer>
-<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换夜航皮肤" title="夜航 / 白昼">🌙</div>
+<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 盐雾 / 夜航">🌙</div>
 <script>(function(){
   var t = document.getElementById('miya-skin-toggle');
-  function label(night){ t.textContent = night ? '☀️' : '🌙'; }
-  label(document.documentElement.getAttribute('data-skin') === 'night');
+  var ORDER = ['paper','haze','night'];
+  var ICON = {paper:'🌫', haze:'🌙', night:'☀️'};
+  function cur(){
+    var a = document.documentElement.getAttribute('data-skin');
+    return (a === 'night' || a === 'haze') ? a : 'paper';
+  }
+  function label(){
+    var c = cur();
+    var nxt = ORDER[(ORDER.indexOf(c) + 1) % ORDER.length];
+    t.textContent = ICON[nxt];
+  }
+  label();
   function flip(){
-    var night = document.documentElement.getAttribute('data-skin') !== 'night';
-    if (night) { document.documentElement.setAttribute('data-skin','night'); }
-    else { document.documentElement.removeAttribute('data-skin'); }
-    label(night);
-    try { localStorage.setItem('miya-skin', night ? 'night' : 'day'); } catch(e) {}
+    var c = cur();
+    var nxt = ORDER[(ORDER.indexOf(c) + 1) % ORDER.length];
+    if (nxt === 'paper') { document.documentElement.removeAttribute('data-skin'); }
+    else { document.documentElement.setAttribute('data-skin', nxt); }
+    label();
+    try { localStorage.setItem('miya-skin', nxt); } catch(e) {}
   }
   t.addEventListener('click', flip);
   t.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });

@@ -1,6 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <script>(function(){try{if(localStorage.getItem('miya-skin')==='night'){document.documentElement.setAttribute('data-skin','night');}}catch(e){}})();</script>
+  <script>(function(){try{var s=localStorage.getItem('miya-skin');if(s==='night'||s==='haze'){document.documentElement.setAttribute('data-skin',s);}}catch(e){}})();</script>
   <%- partial('google-analytics') %>
   <%
   var title = page.title;
@@ -40,4 +40,5 @@
   <%- css('https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css') %>
   <%- css('css/skins/nightfall') %>
   <%- css('css/skins/paper') %>
+  <%- css('css/skins/salt-haze') %>
 </head>
