@@ -1,0 +1,195 @@
+/* ============================================================
+   灯下 Lamplight —— 米米娅的手账 · 暖灯皮肤（第五套）
+   作用域 html[data-skin="lamplight"]（正向前缀）。
+   五套皮肤各用各的 data-skin 值，互不串色：
+   paper 宣纸 / celadon 青瓷 / haze 盐雾 / lamplight 灯下 / night 夜航。
+   思路：把整站换成深暖褐底 + 单一琥珀灯光，像深夜台灯下写手账。
+   ============================================================ */
+
+html[data-skin="lamplight"] body,
+html[data-skin="lamplight"] #wrap {
+  background-color: #1a1410;
+  background-image:
+    radial-gradient(1100px 620px at 18% -8%, rgba(232, 168, 74, .16), rgba(232, 168, 74, 0) 62%),
+    radial-gradient(820px 520px at 92% 8%, rgba(190, 120, 60, .10), rgba(190, 120, 60, 0) 58%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-blend-mode: screen, screen, overlay;
+}
+
+html[data-skin="lamplight"] body { color: #e8dcc6; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="lamplight"] #header { border-bottom-color: #4a3a28; }
+html[data-skin="lamplight"] #banner {
+  filter: sepia(.34) saturate(1.12) brightness(.92) contrast(1.04);
+}
+html[data-skin="lamplight"] #logo,
+html[data-skin="lamplight"] #subtitle {
+  color: #f7e9cd;
+  text-shadow: 0 1px 6px rgba(232, 168, 74, .35);
+}
+html[data-skin="lamplight"] .main-nav-link,
+html[data-skin="lamplight"] .nav-icon {
+  color: #f2e0bd;
+  text-shadow: 0 1px 5px rgba(232, 168, 74, .3);
+}
+
+/* ---------- 卡片与标题 ---------- */
+html[data-skin="lamplight"] .article-inner,
+html[data-skin="lamplight"] .archive-article-inner {
+  background: #241b14;
+  border-color: #4a3a28;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .5), 0 0 26px rgba(232, 168, 74, .07);
+}
+html[data-skin="lamplight"] .article-title,
+html[data-skin="lamplight"] .archive-article-title {
+  color: #f7e9cd;
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+  letter-spacing: .5px;
+}
+html[data-skin="lamplight"] a.article-title:hover { color: #e8a84a; }
+html[data-skin="lamplight"] #logo,
+html[data-skin="lamplight"] .article-entry h1,
+html[data-skin="lamplight"] .article-entry h2,
+html[data-skin="lamplight"] .article-entry h3,
+html[data-skin="lamplight"] .article-entry h4 {
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+}
+
+/* ---------- 正文 ---------- */
+html[data-skin="lamplight"] .article-entry { color: #d8c9ad; }
+html[data-skin="lamplight"] .article-entry a { color: #e8a84a; }
+html[data-skin="lamplight"] .article-entry a:hover { color: #f5c67c; }
+html[data-skin="lamplight"] .article-entry hr { border-color: #4a3a28; }
+html[data-skin="lamplight"] .article-entry strong { color: #f7e9cd; }
+html[data-skin="lamplight"] .article-entry blockquote { color: #bda98a; }
+html[data-skin="lamplight"] .article-entry th { border-bottom-color: #5a4630; }
+html[data-skin="lamplight"] .article-entry td { border-bottom-color: #37291c; }
+
+/* 代码：琥珀字与暗底 */
+html[data-skin="lamplight"] .article-entry code {
+  background: #33261b;
+  text-shadow: none;
+  color: #f0b968;
+}
+html[data-skin="lamplight"] .article-entry pre,
+html[data-skin="lamplight"] .article-entry .highlight {
+  background: #17110c;
+  border-color: #4a3a28;
+  color: #e8dcc6;
+  box-shadow: inset 0 0 34px rgba(232, 168, 74, .07);
+}
+html[data-skin="lamplight"] .article-entry .highlight .gutter pre { color: #8a7458; }
+
+/* ---------- 元信息 ---------- */
+html[data-skin="lamplight"] .article-date,
+html[data-skin="lamplight"] .article-category-link,
+html[data-skin="lamplight"] .archive-year,
+html[data-skin="lamplight"] .widget-title,
+html[data-skin="lamplight"] .archive-list-count { color: #a08a6c; }
+html[data-skin="lamplight"] .article-category { color: #b99055; text-shadow: none; }
+html[data-skin="lamplight"] .article-footer { border-top-color: #4a3a28; }
+html[data-skin="lamplight"] .article-footer a { color: #a08a6c; }
+html[data-skin="lamplight"] .article-tag-list-link { color: #e8a84a; }
+html[data-skin="lamplight"] .article-nav-link-wrap { color: #a08a6c; text-shadow: none; }
+html[data-skin="lamplight"] .article-nav-link-wrap:hover { color: #f7e9cd; }
+html[data-skin="lamplight"] .article-more-link a {
+  background: #33261b; color: #c3ae8c; text-shadow: none;
+}
+html[data-skin="lamplight"] .article-more-link a:hover { background: #e8a84a; color: #241b14; }
+html[data-skin="lamplight"] .article-share-links { background: #241b14; }
+
+/* ---------- 侧栏与搜索 ---------- */
+html[data-skin="lamplight"] .widget {
+  color: #c9b998;
+  text-shadow: none;
+  background: #241b14;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .5), 0 0 22px rgba(232, 168, 74, .06);
+  border: 1px solid #4a3a28;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+html[data-skin="lamplight"] .widget a { color: #e8a84a; }
+html[data-skin="lamplight"] .tagcloud a {
+  background: #33261b; color: #c9b998;
+  text-shadow: none; border: 1px solid #4a3a28;
+}
+html[data-skin="lamplight"] .search-form { background: #241b14; }
+html[data-skin="lamplight"] .search-form-input { color: #e8dcc6; }
+html[data-skin="lamplight"] .search-form-input::placeholder { color: #8d7a5f; }
+html[data-skin="lamplight"] .search-form-submit { color: #a08a6c; }
+
+/* ---------- 页脚：最暗的一圈 ---------- */
+html[data-skin="lamplight"] #footer {
+  background: #120d09;
+  border-top-color: #4a3a28;
+  color: #8d7a5f;
+}
+html[data-skin="lamplight"] #footer a { color: #e0a34a; }
+
+/* ---------- 手账信息流 ---------- */
+html[data-skin="lamplight"] .mimiya-feed .feed-head {
+  background: #241b14;
+  border-color: #4a3a28;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .5), 0 0 22px rgba(232, 168, 74, .07);
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-head .feed-day {
+  color: #f7e9cd;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+  letter-spacing: 1px;
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-head .feed-sub { color: #a08a6c; }
+html[data-skin="lamplight"] .mimiya-feed .feed-rail::before { background: #3a2c1e; }
+html[data-skin="lamplight"] .mimiya-feed .feed-dot {
+  background: #e8a84a;
+  border-color: #241b14;
+  box-shadow: 0 0 0 2px rgba(232, 168, 74, .26), 0 0 12px rgba(232, 168, 74, .5);
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-card {
+  background: #241b14;
+  border-color: #453525;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .5);
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-card:hover {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .55), 0 0 26px rgba(232, 168, 74, .1);
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-time {
+  color: #f0b968;
+  background: #3a2a18;
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-place { color: #a08a6c; }
+html[data-skin="lamplight"] .mimiya-feed .feed-text { color: #d8c9ad; }
+html[data-skin="lamplight"] .mimiya-feed .feed-imgs img { background: #1f1710; }
+html[data-skin="lamplight"] .mimiya-feed .feed-note {
+  color: #c0ac8b;
+  background: #2e2317;
+  border-left-color: #e8a84a;
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-end {
+  background: #241b14;
+  border-color: #453525;
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-end h3 {
+  color: #f7e9cd;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+}
+html[data-skin="lamplight"] .mimiya-feed .feed-end li { color: #c9b998; }
+html[data-skin="lamplight"] .mimiya-feed .feed-end .feed-bye { color: #a08a6c; }
+
+/* 专栏索引（部分元素带内联样式，用 !important 压过去） */
+html[data-skin="lamplight"] .diary-index .feed-head[style] {
+  background: #241b14 !important;
+  border-color: #4a3a28 !important;
+}
+html[data-skin="lamplight"] .diary-index h3[style] { color: #f7e9cd !important; }
+html[data-skin="lamplight"] .diary-index p[style] { color: #c9b998 !important; }
+html[data-skin="lamplight"] .diary-index li[style] { color: #c9b998 !important; }
+html[data-skin="lamplight"] .diary-index .day-row {
+  background: #241b14;
+  border-color: #453525;
+}
+html[data-skin="lamplight"] .diary-index .day-link { color: #f7e9cd; }
+html[data-skin="lamplight"] .diary-index .day-link a { color: #f7e9cd; }
+html[data-skin="lamplight"] .diary-index .day-link a:hover { color: #e8a84a; }
+html[data-skin="lamplight"] .diary-index .day-desc { color: #a08a6c; }
