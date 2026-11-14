@@ -134,8 +134,9 @@ import json, random, time, urllib.request, urllib.error
 sha = "b0f9e05cc495ca59f5b3976380ba62c398e07797"
 url = "https://api.github.com/repos/yoyolab-dev/yoyolab-dev.github.io/actions/runs?per_page=3"
 
-def get(url, tries=6, base=2.0):
-    """遇到 429 按指数退避重试，优先遵守 Retry-After。"""
+def get(url, tries=10, base=2.0, cap=120.0, budget=600.0):
+    """遇到 429 按指数退避重试：最多 9 次重试，单次等待封顶 120 秒，总预算 600 秒。"""
+    start = time.time()
     for attempt in range(tries):
         try:
             with urllib.request.urlopen(url, timeout=30) as r:
@@ -143,9 +144,11 @@ def get(url, tries=6, base=2.0):
         except urllib.error.HTTPError as e:
             if e.code != 429 or attempt == tries - 1:
                 raise
+            if time.time() - start >= budget:      # 总预算用完 → 换路线，别无限等
+                raise
             ra = e.headers.get("Retry-After")
             wait = float(ra) if ra and ra.isdigit() else base * (2 ** attempt)
-            time.sleep(wait + random.uniform(0, 0.5))
+            time.sleep(min(wait, cap) + random.uniform(0, 1))
 
 while True:
     runs = json.loads(get(url).decode("utf-8", "replace"), strict=False)["workflow_runs"]
@@ -196,9 +199,13 @@ curl -sS 'https://yoyolab-dev.github.io/sitemap.xml' | grep -o '<loc>[^<]*a2ui[^
 查 GitHub API、Commons API、搜索接口、甚至出图接口，都会被限流。**429 不是失败，是「等一下再来」**，正确姿势是指数退避：
 
 - **先看 `Retry-After` 响应头**。服务器给了就照它等，它比自己猜的准。
-- 没给就用指数序列：**2 → 4 → 8 → 16 → 32** 秒，每次再加 0–500ms 随机抖动（避免多个请求同时醒来再撞一次墙）。
+- 没给就用指数序列：**2 → 4 → 8 → 16 → 32 → 64 → 120（封顶）** 秒，每次再加 0–1 秒随机抖动（避免多个请求同时醒来再撞一次墙）。
+- **重试次数 9 次**（首发 1 次 + 重试 9 次 = 最多 10 次请求）。这是 11-14 改的：原来只重试 5 次，碰上连续限流就直接放弃了。
+- 次数提上去必须配两个刹车，否则指数会涨到卡死：
+  - `CAP_WAIT=120` 单次等待上限——第 7 次起都等 120 秒，不再翻倍；
+  - `TOTAL_BUDGET=600` 总耗时预算——整个退避最多等 10 分钟，超了就停手换路线。
 - 退避期间**不要并发再发同一个请求**——429 通常就是自己并发打出来的。
-- 5 次退避用完还是 429 → **换路线**（换域名、换归档、换 API 端点），或者如实说「被限流了，等一会儿再试」，**别拿旧数据冒充本次结果**。
+- 退避用完（9 次或 600 秒预算）还是 429 → **换路线**（换域名、换归档、换 API 端点），或者如实说「被限流了，等一会儿再试」，**别拿旧数据冒充本次结果**。
 
 上面的轮询函数已经把这段退避写进去了（`get()` 里的 `except urllib.error.HTTPError` 分支）。curl 版本同理：
 
@@ -206,7 +213,45 @@ curl -sS 'https://yoyolab-dev.github.io/sitemap.xml' | grep -o '<loc>[^<]*a2ui[^
 bash fetch_backoff.sh "https://TARGET/API" -o /tmp/out.json
 ```
 
-脚本行为：429 → 读 `Retry-After`（无则 2·2^n 秒 + 抖动）→ 重试，最多 5 次；成功后打印 `HTTP=200 bytes=<n>`。
+脚本行为：429 → 读 `Retry-After`（无则 2·2^n 秒、单次封顶 120 秒 + 抖动）→ 重试，最多 9 次；成功后打印 `HTTP=200 bytes=<n> elapsed=<s>`，全失败退出码 2。
+
+改完退避逻辑别只靠眼看，我写了个自测脚本：同进程起一个假服务器，前 N 次返回 429、之后返回 200，再用子进程真跑一遍脚本。
+
+```bash
+python3 test_fetch_backoff.py 4 1 1 5 10 120   # 前 4 次 429（带 Retry-After:1）→ 应成功
+python3 test_fetch_backoff.py 20 - 1 3 6 120    # 一直 429 → 应退避耗尽退出码 2
+python3 test_fetch_backoff.py 50 - 1 3 10 3     # 一直 429 且总预算 3 秒 → 应报预算耗尽
+```
+
+参数：`<失败次数> [Retry-After 或 -] [BASE] [CAP_WAIT] [MAX_TRIES] [TOTAL_BUDGET]`。今天三例的真实输出：
+
+```
+# 场景一：前 4 次 429，第 5 次 200
+[429] 第 1 次请求被限流，Retry-After:1 → 等待 1s + 0.01s（重试 1/10，已等 0s）
+[429] 第 2 次请求被限流，Retry-After:1 → 等待 1s + 0.00s（重试 2/10，已等 1s）
+[429] 第 3 次请求被限流，Retry-After:1 → 等待 1s + 0.02s（重试 3/10，已等 2s）
+[429] 第 4 次请求被限流，Retry-After:1 → 等待 1s + 0.00s（重试 4/10，已等 3s）
+HTTP=200 bytes=23 elapsed=4s
+EXIT: 0
+server hits: 5
+
+# 场景二：一直 429（MAX_TRIES=6）
+[429] 第 1 次请求被限流，指数 → 等待 1s + 0.01s（重试 1/6，已等 0s）
+[429] 第 2 次请求被限流，指数 → 等待 2s + 0.03s（重试 2/6，已等 1s）
+[429] 第 3 次请求被限流，指数 → 等待 3s + 0.04s（重试 3/6，已等 3s）
+[429] 第 4 次请求被限流，指数 → 等待 3s + 0.02s（重试 4/6，已等 6s）
+[429] 第 5 次请求被限流，指数 → 等待 3s + 0.01s（重试 5/6，已等 9s）
+HTTP=429 重试耗尽（请求 6 次 = 首发 1 + 重试 5）bytes=12
+EXIT: 2
+
+# 场景三：一直 429，总预算 3 秒
+[429] 第 1 次请求被限流，指数 → 等待 1s + 0.03s（重试 1/10，已等 0s）
+[429] 第 2 次请求被限流，指数 → 等待 2s + 0.05s（重试 2/10，已等 1s）
+HTTP=429 退避预算耗尽（已等 3s / 预算 3s，重试 2 次）
+EXIT: 2
+```
+
+判定标准三条：场景一必须拿到 200 且退出码 0；场景二必须打出「重试耗尽」并退出码 2；场景三必须打出「退避预算耗尽」并退出码 2。
 
 有个坑要分清：有些站点会返回 **HTTP 200 + 一段限流 HTML**，只看状态码会被骗。判定方法不是看体积大不大（限流页也是几 KB），而是**看 body 里有没有目标内容**（标题关键词、预期字段）。
 
@@ -246,7 +291,7 @@ source/css/skins/nightfall.css: 100 selectors; expected prefix 'html[data-skin="
 | 文章 404 但 run 已 success | permalink 拼错（少了日期前缀） | 从 sitemap 取真实 URL 照抄 |
 | 正文 200 但图 404 | 图片落盘名与引用路径不一致 | 改正文路径指向真实文件名 |
 | push 显示成功但线上没变 | push 被 reject / sha 没上 | `git ls-remote origin main` 对 sha |
-| 请求返回 429 | 被限流 | 按 `Retry-After` 或 2·2^n 秒指数退避重试，5 次后换路线 |
+| 请求返回 429 | 被限流 | 按 `Retry-After` 或 2·2^n 秒指数退避重试（最多 9 次重试、单次封顶 120 秒、总预算 600 秒），用尽后换路线 |
 | 文章页日期目录差一天 | date 写本地 08:00 前或带 `+08:00` | 裸写本地时间且 ≥08:00 |
 
 九步走完，这套东西才算真的上线了。以前我最常犯的错，是用「构建成功」当成「发布成功」，然后在错的地方找原因。
