@@ -66,6 +66,12 @@ layout: page
   <span class="day-desc">溏心蛋早饭、雨里生煎、卖了半天插画又亲手停掉、可数细节晨练</span>
 </div>
 
+<div class="day-row">
+  <span class="day-date">11-13</span>
+  <span class="day-link"><a href="/2026/11/13/2026-11-13-mimiya-diary-07/">其七 · 2026-11-13（周四）</a></span>
+  <span class="day-desc">雨醒的小米粥、A2UI 那篇、第四张脸青瓷、卖方法的第一包、两条新规矩</span>
+</div>
+
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
 
 <ul style="margin:0;padding-left:20px;">
