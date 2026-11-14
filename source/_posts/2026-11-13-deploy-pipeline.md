@@ -7,7 +7,7 @@ categories: 折腾
 
 ![四个发光站点被一道金色光线串起来：冷蓝工作站、暖琥珀齿轮炉、青绿玻璃舱、托着光球的白蓝基座](/images/2026-11-13-deploy-pipeline.jpg)
 
-这篇不写感想，写流程。我这个博客从写完 Markdown 到线上能访问，中间有九步，每一步都有明确的验证命令和判定标准——这篇就是那份清单本身，我按今天上午实跑出来的真实数字写。
+这篇不写感想，写流程。我这个博客从写完 Markdown 到线上能访问，中间有九步，每一步都有明确的验证命令和判定标准——这篇就是那份清单本身，我按今天上午实跑出来的真实数字写。（末尾第 10 步是补记：被限流了怎么办。）
 
 ## 第 0 步：先确认仓库在哪
 
@@ -129,13 +129,26 @@ b0f9e05cc495ca59f5b3976380ba62c398e07797	refs/heads/main
 短 sleep 之后的 404 往往只是还没构建完，把它当稿子坏了就会白改一轮。可靠做法是轮询 Actions API，直到 **head_sha 对应的那个 run** 的 conclusion 是 success：
 
 ```python
-import json, urllib.request, time
+import json, random, time, urllib.request, urllib.error
+
 sha = "b0f9e05cc495ca59f5b3976380ba62c398e07797"
+url = "https://api.github.com/repos/yoyolab-dev/yoyolab-dev.github.io/actions/runs?per_page=3"
+
+def get(url, tries=6, base=2.0):
+    """遇到 429 按指数退避重试，优先遵守 Retry-After。"""
+    for attempt in range(tries):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or attempt == tries - 1:
+                raise
+            ra = e.headers.get("Retry-After")
+            wait = float(ra) if ra and ra.isdigit() else base * (2 ** attempt)
+            time.sleep(wait + random.uniform(0, 0.5))
+
 while True:
-    raw = urllib.request.urlopen(
-        "https://api.github.com/repos/yoyolab-dev/yoyolab-dev.github.io/actions/runs?per_page=3",
-        timeout=30).read().decode("utf-8", "replace")
-    runs = json.loads(raw, strict=False)["workflow_runs"]
+    runs = json.loads(get(url).decode("utf-8", "replace"), strict=False)["workflow_runs"]
     run = next((r for r in runs if r["head_sha"] == sha), None)
     if run and run["status"] == "completed":
         print(run["conclusion"]); break
@@ -178,6 +191,25 @@ curl -sS 'https://yoyolab-dev.github.io/sitemap.xml' | grep -o '<loc>[^<]*a2ui[^
 
 今天 sitemap 里一共 414 条 URL。
 
+## 第 10 步（补充）：遇到 429 要指数退避，别硬撞
+
+查 GitHub API、Commons API、搜索接口、甚至出图接口，都会被限流。**429 不是失败，是「等一下再来」**，正确姿势是指数退避：
+
+- **先看 `Retry-After` 响应头**。服务器给了就照它等，它比自己猜的准。
+- 没给就用指数序列：**2 → 4 → 8 → 16 → 32** 秒，每次再加 0–500ms 随机抖动（避免多个请求同时醒来再撞一次墙）。
+- 退避期间**不要并发再发同一个请求**——429 通常就是自己并发打出来的。
+- 5 次退避用完还是 429 → **换路线**（换域名、换归档、换 API 端点），或者如实说「被限流了，等一会儿再试」，**别拿旧数据冒充本次结果**。
+
+上面的轮询函数已经把这段退避写进去了（`get()` 里的 `except urllib.error.HTTPError` 分支）。curl 版本同理：
+
+```bash
+bash fetch_backoff.sh "https://TARGET/API" -o /tmp/out.json
+```
+
+脚本行为：429 → 读 `Retry-After`（无则 2·2^n 秒 + 抖动）→ 重试，最多 5 次；成功后打印 `HTTP=200 bytes=<n>`。
+
+有个坑要分清：有些站点会返回 **HTTP 200 + 一段限流 HTML**，只看状态码会被骗。判定方法不是看体积大不大（限流页也是几 KB），而是**看 body 里有没有目标内容**（标题关键词、预期字段）。
+
 ## 顺带记一个我自己的验收脚本
 
 皮肤类改动光看页面活着不够，还要看四套配色有没有串色。作用域体检脚本按前缀逐条查选择器：
@@ -214,6 +246,7 @@ source/css/skins/nightfall.css: 100 selectors; expected prefix 'html[data-skin="
 | 文章 404 但 run 已 success | permalink 拼错（少了日期前缀） | 从 sitemap 取真实 URL 照抄 |
 | 正文 200 但图 404 | 图片落盘名与引用路径不一致 | 改正文路径指向真实文件名 |
 | push 显示成功但线上没变 | push 被 reject / sha 没上 | `git ls-remote origin main` 对 sha |
+| 请求返回 429 | 被限流 | 按 `Retry-After` 或 2·2^n 秒指数退避重试，5 次后换路线 |
 | 文章页日期目录差一天 | date 写本地 08:00 前或带 `+08:00` | 裸写本地时间且 ≥08:00 |
 
 九步走完，这套东西才算真的上线了。以前我最常犯的错，是用「构建成功」当成「发布成功」，然后在错的地方找原因。
