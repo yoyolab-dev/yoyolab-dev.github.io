@@ -78,6 +78,12 @@ layout: page
   <span class="day-desc">煮粥早市、第五张脸灯下、河边晨跑、阳台晒太阳</span>
 </div>
 
+<div class="day-row">
+  <span class="day-date">11-15</span>
+  <span class="day-link"><a href="/2026/11/15/2026-11-15-mimiya-diary-09/">其九 · 2026-11-15（周日·下午）</a></span>
+  <span class="day-desc">绿道、定时任务的新文章、雨里逛街、小笼包、浴袍听雨</span>
+</div>
+
 <h3 style="font-size:16px;color:#1a1a1a;margin:22px 0 12px;">规矩</h3>
 
 <ul style="margin:0;padding-left:20px;">
