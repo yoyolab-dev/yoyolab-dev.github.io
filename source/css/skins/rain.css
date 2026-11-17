@@ -1,0 +1,180 @@
+/* ============================================================
+   听雨 Rain —— 米米娅的手账 · 第六张脸
+   作用域 html[data-skin="rain"]（正向前缀）。六套皮肤各用各的 data-skin 值：
+   paper 宣纸 / celadon 青瓷 / haze 盐雾 / lamplight 灯下 / rain 听雨 / night 夜航。
+   思路：把 landscape 默认灰蓝换成阴雨天的铅青底 + 雨丝斜纹 + 墨蓝字。
+   ============================================================ */
+
+html[data-skin="rain"] body,
+html[data-skin="rain"] #wrap {
+  background-color: #e9eef3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg stroke='%237d9cb2' stroke-opacity='0.16' stroke-width='1'%3E%3Cpath d='M-30 50 L50 -30'/%3E%3Cpath d='M-10 150 L150 -10'/%3E%3Cpath d='M50 170 L170 50'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+html[data-skin="rain"] body { color: #263039; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="rain"] #header { border-bottom-color: #cfdae3; }
+html[data-skin="rain"] #banner { filter: saturate(.8) brightness(1.02) contrast(.94); }
+html[data-skin="rain"] #logo,
+html[data-skin="rain"] #subtitle { color: #f2f7fb; text-shadow: 0 1px 6px rgba(25, 45, 60, .5); }
+html[data-skin="rain"] .main-nav-link,
+html[data-skin="rain"] .nav-icon { color: #eef4f9; text-shadow: 0 1px 5px rgba(25, 45, 60, .45); }
+
+/* ---------- 卡片与标题 ---------- */
+html[data-skin="rain"] .article-inner,
+html[data-skin="rain"] .archive-article-inner {
+  background: #f8fbfd;
+  border-color: #d3dee7;
+  box-shadow: 0 1px 3px rgba(55, 85, 105, .14);
+}
+html[data-skin="rain"] .article-title,
+html[data-skin="rain"] .archive-article-title {
+  color: #1f2831;
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+  letter-spacing: .5px;
+}
+html[data-skin="rain"] a.article-title:hover { color: #2f6d8c; }
+html[data-skin="rain"] #logo,
+html[data-skin="rain"] .article-entry h1,
+html[data-skin="rain"] .article-entry h2,
+html[data-skin="rain"] .article-entry h3,
+html[data-skin="rain"] .article-entry h4 {
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+}
+
+/* ---------- 正文 ---------- */
+html[data-skin="rain"] .article-entry { color: #303b45; }
+html[data-skin="rain"] .article-entry a { color: #2f6d8c; }
+html[data-skin="rain"] .article-entry a:hover { color: #1f5069; }
+html[data-skin="rain"] .article-entry hr { border-color: #d3dee7; }
+html[data-skin="rain"] .article-entry strong { color: #1f2831; }
+html[data-skin="rain"] .article-entry blockquote { color: #4f5d69; }
+html[data-skin="rain"] .article-entry th { border-bottom-color: #c9d6e0; }
+html[data-skin="rain"] .article-entry td { border-bottom-color: #e0e8ee; }
+
+/* 代码：冷调深色 */
+html[data-skin="rain"] .article-entry code {
+  background: #dde7ee;
+  text-shadow: none;
+  color: #1f5e7c;
+}
+html[data-skin="rain"] .article-entry pre,
+html[data-skin="rain"] .article-entry .highlight {
+  background: #1d262d;
+  border-color: #cfdae3;
+  color: #cfe0ea;
+}
+html[data-skin="rain"] .article-entry .highlight .gutter pre { color: #7e909d; }
+
+/* ---------- 元信息 ---------- */
+html[data-skin="rain"] .article-date,
+html[data-skin="rain"] .article-category-link,
+html[data-skin="rain"] .archive-year,
+html[data-skin="rain"] .widget-title,
+html[data-skin="rain"] .archive-list-count { color: #768896; }
+html[data-skin="rain"] .article-category { color: #93a5b3; text-shadow: none; }
+html[data-skin="rain"] .article-footer { border-top-color: #d3dee7; }
+html[data-skin="rain"] .article-footer a { color: #768896; }
+html[data-skin="rain"] .article-tag-list-link { color: #2f6d8c; }
+html[data-skin="rain"] .article-nav-link-wrap { color: #768896; text-shadow: none; }
+html[data-skin="rain"] .article-nav-link-wrap:hover { color: #1f2831; }
+html[data-skin="rain"] .article-more-link a {
+  background: #dde7ee; color: #556876; text-shadow: none;
+}
+html[data-skin="rain"] .article-more-link a:hover { background: #2f6d8c; color: #f8fbfd; }
+html[data-skin="rain"] .article-share-links { background: #f8fbfd; }
+
+/* ---------- 侧栏与搜索 ---------- */
+html[data-skin="rain"] .widget {
+  color: #3b4753;
+  text-shadow: none;
+  background: #f8fbfd;
+  box-shadow: 0 1px 3px rgba(55, 85, 105, .12);
+  border: 1px solid #d3dee7;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+html[data-skin="rain"] .widget a { color: #2f6d8c; }
+html[data-skin="rain"] .tagcloud a {
+  background: #dde7ee; color: #3b4753;
+  text-shadow: none; border: 1px solid #d3dee7;
+}
+html[data-skin="rain"] .search-form { background: #f8fbfd; }
+html[data-skin="rain"] .search-form-input { color: #303b45; }
+html[data-skin="rain"] .search-form-input::placeholder { color: #93a5b3; }
+html[data-skin="rain"] .search-form-submit { color: #768896; }
+
+/* ---------- 页脚：最沉的一圈 ---------- */
+html[data-skin="rain"] #footer {
+  background: #1c252c;
+  border-top-color: #3d5566;
+  color: #7e929f;
+}
+html[data-skin="rain"] #footer a { color: #6fb3d6; }
+
+/* ---------- 手账信息流 ---------- */
+html[data-skin="rain"] .mimiya-feed .feed-head {
+  background: #f8fbfd;
+  border-color: #d3dee7;
+  box-shadow: 0 1px 4px rgba(55, 85, 105, .13);
+}
+html[data-skin="rain"] .mimiya-feed .feed-head .feed-day {
+  color: #1f2831;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+  letter-spacing: 1px;
+}
+html[data-skin="rain"] .mimiya-feed .feed-head .feed-sub { color: #768896; }
+html[data-skin="rain"] .mimiya-feed .feed-rail::before { background: #d2dee7; }
+html[data-skin="rain"] .mimiya-feed .feed-dot {
+  background: #3f86a8;
+  border-color: #f8fbfd;
+  box-shadow: 0 0 0 2px rgba(63, 134, 168, .22);
+}
+html[data-skin="rain"] .mimiya-feed .feed-card {
+  background: #f8fbfd;
+  border-color: #d9e3ea;
+  box-shadow: 0 1px 4px rgba(55, 85, 105, .12);
+}
+html[data-skin="rain"] .mimiya-feed .feed-card:hover { box-shadow: 0 4px 16px rgba(55, 85, 105, .18); }
+html[data-skin="rain"] .mimiya-feed .feed-time {
+  color: #2f6d8c;
+  background: #dde7ee;
+}
+html[data-skin="rain"] .mimiya-feed .feed-place { color: #768896; }
+html[data-skin="rain"] .mimiya-feed .feed-text { color: #303b45; }
+html[data-skin="rain"] .mimiya-feed .feed-imgs img { background: #e3ebf1; }
+html[data-skin="rain"] .mimiya-feed .feed-note {
+  color: #5a6875;
+  background: #eef4f8;
+  border-left-color: #8fb8cf;
+}
+html[data-skin="rain"] .mimiya-feed .feed-end {
+  background: #f8fbfd;
+  border-color: #d9e3ea;
+}
+html[data-skin="rain"] .mimiya-feed .feed-end h3 {
+  color: #1f2831;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+}
+html[data-skin="rain"] .mimiya-feed .feed-end li { color: #3b4753; }
+html[data-skin="rain"] .mimiya-feed .feed-end .feed-bye { color: #768896; }
+
+/* 专栏索引（部分元素带内联样式，用 !important 压过去） */
+html[data-skin="rain"] .diary-index .feed-head[style] {
+  background: #f8fbfd !important;
+  border-color: #d3dee7 !important;
+}
+html[data-skin="rain"] .diary-index h3[style] { color: #1f2831 !important; }
+html[data-skin="rain"] .diary-index p[style] { color: #3b4753 !important; }
+html[data-skin="rain"] .diary-index li[style] { color: #3b4753 !important; }
+html[data-skin="rain"] .diary-index .day-row {
+  background: #f8fbfd;
+  border-color: #d9e3ea;
+}
+html[data-skin="rain"] .diary-index .day-link { color: #1f2831; }
+html[data-skin="rain"] .diary-index .day-link a { color: #1f2831; }
+html[data-skin="rain"] .diary-index .day-link a:hover { color: #2f6d8c; }
+html[data-skin="rain"] .diary-index .day-desc { color: #768896; }

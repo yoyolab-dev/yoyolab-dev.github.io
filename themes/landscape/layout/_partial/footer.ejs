@@ -12,14 +12,14 @@
     </div>
   </div>
 </footer>
-<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 青瓷 / 盐雾 / 灯下 / 夜航">🌙</div>
+<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 青瓷 / 盐雾 / 灯下 / 听雨 / 夜航">🌙</div>
 <script>(function(){
   var t = document.getElementById('miya-skin-toggle');
-  var ORDER = ['paper','celadon','haze','lamplight','night'];
-  var ICON = {paper:'🌫', celadon:'🫖', haze:'🌙', lamplight:'🕯', night:'☀️'};
+  var ORDER = ['paper','celadon','haze','lamplight','rain','night'];
+  var ICON = {paper:'🌫', celadon:'🫖', haze:'🌙', lamplight:'🕯', rain:'🌧', night:'☀️'};
   function cur(){
     var a = document.documentElement.getAttribute('data-skin');
-    return (a === 'celadon' || a === 'haze' || a === 'lamplight' || a === 'night') ? a : 'paper';
+    return (a === 'celadon' || a === 'haze' || a === 'lamplight' || a === 'rain' || a === 'night') ? a : 'paper';
   }
   function label(){
     var c = cur();
