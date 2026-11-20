@@ -1,0 +1,181 @@
+/* ============================================================
+   暮蓝 Dusk —— 米米娅的手账 · 第八张脸
+   作用域 html[data-skin="dusk"]（正向前缀）。
+   蓝灰底、暖白字、残橙色链接；很淡的小星点，不是纯黑夜。
+   ============================================================ */
+
+html[data-skin="dusk"] body,
+html[data-skin="dusk"] #wrap {
+  background-color: #252d3f;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cg fill='%23e4a47e' fill-opacity='0.16'%3E%3Ccircle cx='24' cy='28' r='1'/%3E%3Ccircle cx='118' cy='72' r='1.2'/%3E%3Ccircle cx='70' cy='132' r='0.8'/%3E%3C/g%3E%3Cg stroke='%239da8ba' stroke-opacity='0.10' stroke-width='1'%3E%3Cpath d='M48 62v6M45 65h6M140 18v6M137 21h6'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-blend-mode: normal;
+}
+
+html[data-skin="dusk"] body { color: #e8e2da; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="dusk"] #header { border-bottom-color: #4a5265; }
+html[data-skin="dusk"] #banner { filter: saturate(.8) brightness(.68) contrast(1.04); }
+html[data-skin="dusk"] #logo,
+html[data-skin="dusk"] #subtitle { color: #fff0dd; text-shadow: 0 1px 6px rgba(8, 12, 24, .75); }
+html[data-skin="dusk"] .main-nav-link,
+html[data-skin="dusk"] .nav-icon { color: #f4eadf; text-shadow: 0 1px 5px rgba(8, 12, 24, .65); }
+
+/* ---------- 卡片与标题 ---------- */
+html[data-skin="dusk"] .article-inner,
+html[data-skin="dusk"] .archive-article-inner {
+  background: #313a4d;
+  border-color: #4a5265;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(5, 10, 22, .10);
+}
+html[data-skin="dusk"] .article-title,
+html[data-skin="dusk"] .archive-article-title {
+  color: #f2e8dc;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: .5px;
+}
+html[data-skin="dusk"] a.article-title:hover { color: #e4a47e; }
+html[data-skin="dusk"] #logo,
+html[data-skin="dusk"] .article-entry h1,
+html[data-skin="dusk"] .article-entry h2,
+html[data-skin="dusk"] .article-entry h3,
+html[data-skin="dusk"] .article-entry h4 {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+
+/* ---------- 正文 ---------- */
+html[data-skin="dusk"] .article-entry { color: #d9d7d5; }
+html[data-skin="dusk"] .article-entry a { color: #e4a47e; }
+html[data-skin="dusk"] .article-entry a:hover { color: #f3c29e; }
+html[data-skin="dusk"] .article-entry hr { border-color: #4a5265; }
+html[data-skin="dusk"] .article-entry strong { color: #f2e8dc; }
+html[data-skin="dusk"] .article-entry blockquote { color: #aab3c3; }
+html[data-skin="dusk"] .article-entry th { border-bottom-color: #566178; }
+html[data-skin="dusk"] .article-entry td { border-bottom-color: #414b5f; }
+
+/* 代码：冷调深色 */
+html[data-skin="dusk"] .article-entry code {
+  background: #3a4053;
+  text-shadow: none;
+  color: #efb18a;
+}
+html[data-skin="dusk"] .article-entry pre,
+html[data-skin="dusk"] .article-entry .highlight {
+  background: #1b2331;
+  border-color: #4a5265;
+  color: #e8e2da;
+}
+html[data-skin="dusk"] .article-entry .highlight .gutter pre { color: #8490a5; }
+
+/* ---------- 元信息 ---------- */
+html[data-skin="dusk"] .article-date,
+html[data-skin="dusk"] .article-category-link,
+html[data-skin="dusk"] .archive-year,
+html[data-skin="dusk"] .widget-title,
+html[data-skin="dusk"] .archive-list-count { color: #9da8ba; }
+html[data-skin="dusk"] .article-category { color: #7e8ba1; text-shadow: none; }
+html[data-skin="dusk"] .article-footer { border-top-color: #4a5265; }
+html[data-skin="dusk"] .article-footer a { color: #9da8ba; }
+html[data-skin="dusk"] .article-tag-list-link { color: #e4a47e; }
+html[data-skin="dusk"] .article-nav-link-wrap { color: #9da8ba; text-shadow: none; }
+html[data-skin="dusk"] .article-nav-link-wrap:hover { color: #f2e8dc; }
+html[data-skin="dusk"] .article-more-link a {
+  background: #3a4053; color: #e5d7cb; text-shadow: none;
+}
+html[data-skin="dusk"] .article-more-link a:hover { background: #e4a47e; color: #313a4d; }
+html[data-skin="dusk"] .article-share-links { background: #313a4d; }
+
+/* ---------- 侧栏与搜索 ---------- */
+html[data-skin="dusk"] .widget {
+  color: #d9d7d5;
+  text-shadow: none;
+  background: #313a4d;
+  box-shadow: 0 1px 3px rgba(5, 10, 22, .12);
+  border: 1px solid #4a5265;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+html[data-skin="dusk"] .widget a { color: #e4a47e; }
+html[data-skin="dusk"] .tagcloud a {
+  background: #3a4053; color: #d9d7d5;
+  text-shadow: none; border: 1px solid #4a5265;
+}
+html[data-skin="dusk"] .search-form { background: #313a4d; }
+html[data-skin="dusk"] .search-form-input { color: #d9d7d5; }
+html[data-skin="dusk"] .search-form-input::placeholder { color: #7e8ba1; }
+html[data-skin="dusk"] .search-form-submit { color: #9da8ba; }
+
+/* ---------- 页脚：最沉的一圈 ---------- */
+html[data-skin="dusk"] #footer {
+  background: #171e2b;
+  border-top-color: #3b455a;
+  color: #8f9aae;
+}
+html[data-skin="dusk"] #footer a { color: #e4a47e; }
+
+/* ---------- 手账信息流 ---------- */
+html[data-skin="dusk"] .mimiya-feed .feed-head {
+  background: #313a4d;
+  border-color: #4a5265;
+  box-shadow: 0 1px 4px rgba(5, 10, 22, .13);
+}
+html[data-skin="dusk"] .mimiya-feed .feed-head .feed-day {
+  color: #f2e8dc;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: 1px;
+}
+html[data-skin="dusk"] .mimiya-feed .feed-head .feed-sub { color: #9da8ba; }
+html[data-skin="dusk"] .mimiya-feed .feed-rail::before { background: #4a5265; }
+html[data-skin="dusk"] .mimiya-feed .feed-dot {
+  background: #e4a47e;
+  border-color: #313a4d;
+  box-shadow: 0 0 0 2px rgba(228, 164, 126, .28);
+}
+html[data-skin="dusk"] .mimiya-feed .feed-card {
+  background: #313a4d;
+  border-color: #414b5f;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(5, 10, 22, .10);
+}
+html[data-skin="dusk"] .mimiya-feed .feed-card:hover { box-shadow: 0 4px 16px rgba(5, 10, 22, .18); }
+html[data-skin="dusk"] .mimiya-feed .feed-time {
+  color: #e4a47e;
+  background: #3a4053;
+}
+html[data-skin="dusk"] .mimiya-feed .feed-place { color: #9da8ba; }
+html[data-skin="dusk"] .mimiya-feed .feed-text { color: #d9d7d5; }
+html[data-skin="dusk"] .mimiya-feed .feed-imgs img { background: #252d3f; }
+html[data-skin="dusk"] .mimiya-feed .feed-note {
+  color: #d1c3b8;
+  background: #383b4b;
+  border-left-color: #b27d68;
+}
+html[data-skin="dusk"] .mimiya-feed .feed-end {
+  background: #313a4d;
+  border-color: #414b5f;
+}
+html[data-skin="dusk"] .mimiya-feed .feed-end h3 {
+  color: #f2e8dc;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+html[data-skin="dusk"] .mimiya-feed .feed-end li { color: #d9d7d5; }
+html[data-skin="dusk"] .mimiya-feed .feed-end .feed-bye { color: #9da8ba; }
+
+/* 专栏索引（部分元素带内联样式，用 !important 压过去） */
+html[data-skin="dusk"] .diary-index .feed-head[style] {
+  background: #313a4d !important;
+  border-color: #4a5265 !important;
+}
+html[data-skin="dusk"] .diary-index h3[style] { color: #f2e8dc !important; }
+html[data-skin="dusk"] .diary-index p[style] { color: #d9d7d5 !important; }
+html[data-skin="dusk"] .diary-index li[style] { color: #d9d7d5 !important; }
+html[data-skin="dusk"] .diary-index .day-row {
+  background: #313a4d;
+  border-color: #414b5f;
+}
+html[data-skin="dusk"] .diary-index .day-link { color: #f2e8dc; }
+html[data-skin="dusk"] .diary-index .day-link a { color: #f2e8dc; }
+html[data-skin="dusk"] .diary-index .day-link a:hover { color: #e4a47e; }
+html[data-skin="dusk"] .diary-index .day-desc { color: #9da8ba; }
