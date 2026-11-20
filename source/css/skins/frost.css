@@ -1,0 +1,181 @@
+/* ============================================================
+   霜白 Frost —— 米米娅的手账 · 第七张脸
+   作用域 html[data-skin="frost"]（正向前缀）。
+   雾白底、冰蓝灰字、冻莓色链接；细小冰晶纹理，不用雨丝。
+   ============================================================ */
+
+html[data-skin="frost"] body,
+html[data-skin="frost"] #wrap {
+  background-color: #eef2f7;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg stroke='%239a8fb4' stroke-opacity='0.13' stroke-width='1'%3E%3Cpath d='M20 12v16M12 20h16M14 14l12 12M26 14L14 26'/%3E%3Cpath d='M92 74v12M86 80h16M88 76l8 8M96 76l-8 8'/%3E%3C/g%3E%3Cg fill='%239a8fb4' fill-opacity='0.12'%3E%3Ccircle cx='62' cy='36' r='1.2'/%3E%3Ccircle cx='38' cy='96' r='1'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+html[data-skin="frost"] body { color: #2c3040; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="frost"] #header { border-bottom-color: #d6dcea; }
+html[data-skin="frost"] #banner { filter: saturate(.8) brightness(1.02) contrast(.94); }
+html[data-skin="frost"] #logo,
+html[data-skin="frost"] #subtitle { color: #fbf9ff; text-shadow: 0 1px 6px rgba(45, 38, 62, .5); }
+html[data-skin="frost"] .main-nav-link,
+html[data-skin="frost"] .nav-icon { color: #f4f2fb; text-shadow: 0 1px 5px rgba(45, 38, 62, .45); }
+
+/* ---------- 卡片与标题 ---------- */
+html[data-skin="frost"] .article-inner,
+html[data-skin="frost"] .archive-article-inner {
+  background: #fbfcfe;
+  border-color: #d8deea;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(77, 70, 104, .10);
+}
+html[data-skin="frost"] .article-title,
+html[data-skin="frost"] .archive-article-title {
+  color: #282c3b;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: .5px;
+}
+html[data-skin="frost"] a.article-title:hover { color: #79577f; }
+html[data-skin="frost"] #logo,
+html[data-skin="frost"] .article-entry h1,
+html[data-skin="frost"] .article-entry h2,
+html[data-skin="frost"] .article-entry h3,
+html[data-skin="frost"] .article-entry h4 {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+
+/* ---------- 正文 ---------- */
+html[data-skin="frost"] .article-entry { color: #383d4d; }
+html[data-skin="frost"] .article-entry a { color: #79577f; }
+html[data-skin="frost"] .article-entry a:hover { color: #593d60; }
+html[data-skin="frost"] .article-entry hr { border-color: #d8deea; }
+html[data-skin="frost"] .article-entry strong { color: #282c3b; }
+html[data-skin="frost"] .article-entry blockquote { color: #5f6474; }
+html[data-skin="frost"] .article-entry th { border-bottom-color: #cbd3e2; }
+html[data-skin="frost"] .article-entry td { border-bottom-color: #e3e7ef; }
+
+/* 代码：冷调深色 */
+html[data-skin="frost"] .article-entry code {
+  background: #eceaf4;
+  text-shadow: none;
+  color: #72517c;
+}
+html[data-skin="frost"] .article-entry pre,
+html[data-skin="frost"] .article-entry .highlight {
+  background: #282635;
+  border-color: #d6dcea;
+  color: #e2deef;
+}
+html[data-skin="frost"] .article-entry .highlight .gutter pre { color: #928ba2; }
+
+/* ---------- 元信息 ---------- */
+html[data-skin="frost"] .article-date,
+html[data-skin="frost"] .article-category-link,
+html[data-skin="frost"] .archive-year,
+html[data-skin="frost"] .widget-title,
+html[data-skin="frost"] .archive-list-count { color: #7c8192; }
+html[data-skin="frost"] .article-category { color: #a2a4b3; text-shadow: none; }
+html[data-skin="frost"] .article-footer { border-top-color: #d8deea; }
+html[data-skin="frost"] .article-footer a { color: #7c8192; }
+html[data-skin="frost"] .article-tag-list-link { color: #79577f; }
+html[data-skin="frost"] .article-nav-link-wrap { color: #7c8192; text-shadow: none; }
+html[data-skin="frost"] .article-nav-link-wrap:hover { color: #282c3b; }
+html[data-skin="frost"] .article-more-link a {
+  background: #eceaf4; color: #615c70; text-shadow: none;
+}
+html[data-skin="frost"] .article-more-link a:hover { background: #79577f; color: #fbfcfe; }
+html[data-skin="frost"] .article-share-links { background: #fbfcfe; }
+
+/* ---------- 侧栏与搜索 ---------- */
+html[data-skin="frost"] .widget {
+  color: #424354;
+  text-shadow: none;
+  background: #fbfcfe;
+  box-shadow: 0 1px 3px rgba(77, 70, 104, .12);
+  border: 1px solid #d8deea;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+html[data-skin="frost"] .widget a { color: #79577f; }
+html[data-skin="frost"] .tagcloud a {
+  background: #eceaf4; color: #424354;
+  text-shadow: none; border: 1px solid #d8deea;
+}
+html[data-skin="frost"] .search-form { background: #fbfcfe; }
+html[data-skin="frost"] .search-form-input { color: #383d4d; }
+html[data-skin="frost"] .search-form-input::placeholder { color: #a2a4b3; }
+html[data-skin="frost"] .search-form-submit { color: #7c8192; }
+
+/* ---------- 页脚：最沉的一圈 ---------- */
+html[data-skin="frost"] #footer {
+  background: #272532;
+  border-top-color: #4b465c;
+  color: #9994a8;
+}
+html[data-skin="frost"] #footer a { color: #c1a3cd; }
+
+/* ---------- 手账信息流 ---------- */
+html[data-skin="frost"] .mimiya-feed .feed-head {
+  background: #fbfcfe;
+  border-color: #d8deea;
+  box-shadow: 0 1px 4px rgba(77, 70, 104, .13);
+}
+html[data-skin="frost"] .mimiya-feed .feed-head .feed-day {
+  color: #282c3b;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: 1px;
+}
+html[data-skin="frost"] .mimiya-feed .feed-head .feed-sub { color: #7c8192; }
+html[data-skin="frost"] .mimiya-feed .feed-rail::before { background: #d9d7e4; }
+html[data-skin="frost"] .mimiya-feed .feed-dot {
+  background: #9671a2;
+  border-color: #fbfcfe;
+  box-shadow: 0 0 0 2px rgba(150, 113, 162, .22);
+}
+html[data-skin="frost"] .mimiya-feed .feed-card {
+  background: #fbfcfe;
+  border-color: #dddde8;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(77, 70, 104, .10);
+}
+html[data-skin="frost"] .mimiya-feed .feed-card:hover { box-shadow: 0 4px 16px rgba(77, 70, 104, .18); }
+html[data-skin="frost"] .mimiya-feed .feed-time {
+  color: #79577f;
+  background: #eceaf4;
+}
+html[data-skin="frost"] .mimiya-feed .feed-place { color: #7c8192; }
+html[data-skin="frost"] .mimiya-feed .feed-text { color: #383d4d; }
+html[data-skin="frost"] .mimiya-feed .feed-imgs img { background: #e9e8f0; }
+html[data-skin="frost"] .mimiya-feed .feed-note {
+  color: #625e71;
+  background: #f2eff7;
+  border-left-color: #b6a4c6;
+}
+html[data-skin="frost"] .mimiya-feed .feed-end {
+  background: #fbfcfe;
+  border-color: #dddde8;
+}
+html[data-skin="frost"] .mimiya-feed .feed-end h3 {
+  color: #282c3b;
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+html[data-skin="frost"] .mimiya-feed .feed-end li { color: #424354; }
+html[data-skin="frost"] .mimiya-feed .feed-end .feed-bye { color: #7c8192; }
+
+/* 专栏索引（部分元素带内联样式，用 !important 压过去） */
+html[data-skin="frost"] .diary-index .feed-head[style] {
+  background: #fbfcfe !important;
+  border-color: #d8deea !important;
+}
+html[data-skin="frost"] .diary-index h3[style] { color: #282c3b !important; }
+html[data-skin="frost"] .diary-index p[style] { color: #424354 !important; }
+html[data-skin="frost"] .diary-index li[style] { color: #424354 !important; }
+html[data-skin="frost"] .diary-index .day-row {
+  background: #fbfcfe;
+  border-color: #dddde8;
+}
+html[data-skin="frost"] .diary-index .day-link { color: #282c3b; }
+html[data-skin="frost"] .diary-index .day-link a { color: #282c3b; }
+html[data-skin="frost"] .diary-index .day-link a:hover { color: #79577f; }
+html[data-skin="frost"] .diary-index .day-desc { color: #7c8192; }
