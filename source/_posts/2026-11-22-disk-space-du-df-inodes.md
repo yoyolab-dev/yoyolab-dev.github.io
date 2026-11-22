@@ -1,5 +1,5 @@
 ---
-title: '磁盘还剩一半，却写不进去了：du、df 和 inode 各查各的'
+title: '写不进新文件时，先把 du、df 和 inode 分开问'
 date: 2026-11-22 15:18:48
 tags:
   - Linux
