@@ -1,0 +1,115 @@
+/* ============================================================
+   糖姜 Ginger —— 米米娅的手账 · 白昼暖皮肤（第 9 套，2026-11-25）
+   作用域 html[data-skin="ginger"]（正向前缀）。
+   存在理由：经期第一天的早晨，一口红糖姜茶下去从胃暖到胯骨，
+   于是做了这套——奶姜底色 + 焦糖姜红点缀，比宣纸更暖，
+   比夜航更亮，给冬天早晨和感冒初愈的日子读。
+   ============================================================ */
+
+html[data-skin="ginger"] body,
+html[data-skin="ginger"] #wrap {
+  background-color: #f4e7d3;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-blend-mode: multiply;
+}
+
+html[data-skin="ginger"] body { color: #33261a; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="ginger"] #header { border-bottom-color: #e0cdaf; }
+html[data-skin="ginger"] #banner { filter: sepia(.3) saturate(1.05) brightness(1.05); }
+html[data-skin="ginger"] #logo,
+html[data-skin="ginger"] #subtitle { color: #fff8ec; text-shadow: 0 1px 6px rgba(60, 36, 12, .5); }
+html[data-skin="ginger"] .main-nav-link,
+html[data-skin="ginger"] .nav-icon { color: #fff8ec; text-shadow: 0 1px 4px rgba(60, 36, 12, .45); }
+
+/* ---------- 卡片与标题 ---------- */
+html[data-skin="ginger"] .article-inner,
+html[data-skin="ginger"] .archive-article-inner {
+  background: #fdf6ea;
+  border-color: #e6d5b8;
+  box-shadow: 0 1px 4px rgba(122, 82, 38, .16);
+}
+html[data-skin="ginger"] .article-title,
+html[data-skin="ginger"] .archive-article-title {
+  color: #3a2413;
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+  letter-spacing: .5px;
+}
+html[data-skin="ginger"] a.article-title:hover { color: #a8541f; }
+html[data-skin="ginger"] #logo,
+html[data-skin="ginger"] .article-entry h1,
+html[data-skin="ginger"] .article-entry h2,
+html[data-skin="ginger"] .article-entry h3,
+html[data-skin="ginger"] .article-entry h4 {
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+}
+
+/* ---------- 正文 ---------- */
+html[data-skin="ginger"] .article-entry { color: #3d3021; }
+html[data-skin="ginger"] .article-entry a { color: #a8541f; }
+html[data-skin="ginger"] .article-entry a:hover { color: #7c3a12; }
+html[data-skin="ginger"] .article-entry hr { border-color: #e6d5b8; }
+html[data-skin="ginger"] .article-entry strong { color: #3a2413; }
+html[data-skin="ginger"] .article-entry em { color: #6b4420; }
+html[data-skin="ginger"] .article-entry blockquote {
+  color: #5c452c;
+  border-left-color: #d9b48a;
+  background: rgba(216, 180, 138, .16);
+  padding: 10px 15px;
+  border-radius: 0 6px 6px 0;
+}
+html[data-skin="ginger"] .article-entry th { border-bottom-color: #ddc9ad; }
+html[data-skin="ginger"] .article-entry td { border-bottom-color: #efe3cf; }
+html[data-skin="ginger"] .article-entry caption { color: #7c6244; }
+
+/* ---------- 代码：焦糖深底 ---------- */
+html[data-skin="ginger"] .article-entry code {
+  background: #f2e2c8;
+  color: #6d3a14;
+  border-color: #e3cfa9;
+}
+html[data-skin="ginger"] .article-entry pre {
+  background: #2e2016;
+  border-color: #4a3524;
+}
+html[data-skin="ginger"] .article-entry pre code {
+  background: transparent;
+  color: #f3e3cd;
+  border: none;
+}
+html[data-skin="ginger"] .article-entry figure.highlight,
+html[data-skin="ginger"] .article-entry figure.highlight figcaption,
+html[data-skin="ginger"] .article-entry figure.highlight .code { background: #2e2016; color: #f3e3cd; border-color: #4a3524; }
+html[data-skin="ginger"] .article-entry figure.highlight .line span { color: #f3e3cd; }
+
+/* ---------- 元信息与分页 ---------- */
+html[data-skin="ginger"] .article-meta,
+html[data-skin="ginger"] .archive-article-date,
+html[data-skin="ginger"] .article-category { color: #8a6a45; }
+html[data-skin="ginger"] .article-nav { border-top-color: #e6d5b8; }
+html[data-skin="ginger"] #page-nav a,
+html[data-skin="ginger"] #page-nav span {
+  background: #fdf6ea;
+  border-color: #e6d5b8;
+  color: #6d3a14;
+}
+html[data-skin="ginger"] #page-nav .current { color: #fdf6ea; background: #a8541f; border-color: #a8541f; }
+
+/* ---------- 侧栏与页脚 ---------- */
+html[data-skin="ginger"] .widget {
+  background: #fdf6ea;
+  border-color: #e6d5b8;
+  box-shadow: 0 1px 3px rgba(122, 82, 38, .12);
+}
+html[data-skin="ginger"] .widget-title { color: #3a2413; border-bottom-color: #e6d5b8; }
+html[data-skin="ginger"] .widget a { color: #a8541f; }
+html[data-skin="ginger"] .widget a:hover { color: #7c3a12; }
+html[data-skin="ginger"] .category-list-link,
+html[data-skin="ginger"] .tag-cloud a { color: #8a5a2c; }
+html[data-skin="ginger"] #footer-info { color: #8a6a45; border-top-color: #e6d5b8; }
+html[data-skin="ginger"] #footer-info a { color: #a8541f; }
+
+/* 选中色：姜糖 */
+html[data-skin="ginger"] ::selection { background: #e8c8a0; color: #33261a; }
