@@ -1,0 +1,172 @@
+/* ============================================================
+   便当 Bento —— 米米娅的手账 · 组件级皮肤（第 10 套，2026-11-25）
+   哥哥 11-25 指示：开发皮肤不要只改颜色，还要改样式/风格/控件/组件。
+   作用域 html[data-skin="bento"]。前九套都只换调色板，这一套换结构：
+   ① 首页索引从竖排列表改成便当网格卡片（grid 换 layout）
+   ② 文章页单栏阅读模式：隐藏右侧 aside 侧栏、正文收窄居中、行高字号加大（改 layout）
+   ③ 文内标题自动编号胶囊（counter 组件）
+   ④ 阅读进度条 + 返回顶按钮（新控件，见 footer.ejs 守卫脚本）
+   ⑤ 引用块/代码块换组件造型（胶带贴纸、厚圆角、大引号）
+   ============================================================ */
+
+/* ---------- 便当配色（在这一套里也顺带了） ---------- */
+html[data-skin="bento"] body,
+html[data-skin="bento"] #wrap {
+  background-color: #f2efe9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+html[data-skin="bento"] body { color: #2f2d2a; }
+
+/* ---------- 组件④：阅读进度条 + 返回顶 ---------- */
+html[data-skin="bento"] #bento-progress {
+  position: fixed; top: 0; left: 0; height: 4px; width: 0;
+  background: linear-gradient(90deg, #e0601f, #f2a541);
+  z-index: 9999; border-radius: 0 2px 2px 0;
+  transition: width .08s linear;
+}
+html[data-skin="bento"] #bento-top {
+  position: fixed; right: 22px; bottom: 78px; width: 44px; height: 44px;
+  line-height: 44px; text-align: center; font-size: 20px; color: #fff;
+  background: #e0601f; border-radius: 50%; cursor: pointer;
+  box-shadow: 0 3px 10px rgba(224, 96, 31, .35);
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .25s, transform .25s, background .15s;
+  z-index: 9998; user-select: none;
+}
+html[data-skin="bento"] #bento-top:hover { background: #b8490f; transform: translateY(0) scale(1.06); }
+
+/* ---------- 头图与导航 ---------- */
+html[data-skin="bento"] #header { border-bottom: 0; }
+html[data-skin="bento"] #logo,
+html[data-skin="bento"] #subtitle { color: #fff8ec; text-shadow: 0 1px 6px rgba(40, 25, 8, .5); }
+html[data-skin="bento"] .main-nav-link,
+html[data-skin="bento"] .nav-icon { color: #fff8ec; text-shadow: 0 1px 4px rgba(40, 25, 8, .45); }
+
+/* ---------- 组件①：索引便当网格 ---------- */
+html[data-skin="bento"] .outer { max-width: 1080px; margin: 0 auto; }
+html[data-skin="bento"] #main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  padding: 30px 18px 40px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  html[data-skin="bento"] #main { grid-template-columns: 1fr; }
+}
+html[data-skin="bento"] .archive-article {
+  margin: 0;                      /* 取消竖排列表的间距 */
+  break-inside: avoid;
+}
+html[data-skin="bento"] .archive-article-inner {
+  background: #fffdf8;
+  border: 1px solid #e6ddcb;
+  border-radius: 16px;            /* 便当格大圆角 */
+  padding: 22px 22px 26px;
+  box-shadow: 0 2px 6px rgba(90, 70, 40, .08);
+  transition: transform .18s ease, box-shadow .18s ease;
+  min-height: 150px;
+}
+html[data-skin="bento"] .archive-article-inner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(90, 70, 40, .14);
+}
+html[data-skin="bento"] .archive-article-date {
+  display: inline-block;
+  background: #f6e7d4; color: #a8541f;
+  border-radius: 999px; padding: 2px 12px;
+  font-size: 12px; letter-spacing: 1px;
+}
+html[data-skin="bento"] .archive-article-title {
+  margin: 12px 0 0;
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif;
+  font-size: 19px; line-height: 1.5;
+}
+html[data-skin="bento"] .archive-article-title a { color: #33261a; }
+html[data-skin="bento"] .archive-article-title a:hover { color: #e0601f; }
+
+/* ---------- 组件②：文章页单栏阅读 ---------- */
+html[data-skin="bento"] #aside { display: none !important; }   /* 隐藏侧栏 = 单栏 */
+html[data-skin="bento"] #main > .article { max-width: 760px; margin: 26px auto 40px; }
+html[data-skin="bento"] .article-inner {
+  background: #fffdf8;
+  border: 1px solid #e6ddcb;
+  border-radius: 16px;
+  padding: 42px 46px 46px;
+  box-shadow: 0 2px 10px rgba(90, 70, 40, .08);
+}
+@media (max-width: 760px) {
+  html[data-skin="bento"] .article-inner { padding: 26px 20px 30px; }
+}
+html[data-skin="bento"] .article-entry {
+  font-size: 17px;
+  line-height: 2.05;              /* 加大行高，读起来更松 */
+  letter-spacing: .2px;
+  color: #33302b;
+}
+html[data-skin="bento"] .article-entry p { margin: 1.1em 0; }
+html[data-skin="bento"] .article-entry a { color: #c14f12; text-decoration: underline; text-decoration-color: rgba(193, 79, 18, .35); text-underline-offset: 4px; }
+html[data-skin="bento"] .article-entry a:hover { color: #96390a; text-decoration-color: #96390a; }
+
+/* ---------- 组件③：标题编号胶囊 ---------- */
+html[data-skin="bento"] .article-entry { counter-reset: bento-h; }
+html[data-skin="bento"] .article-entry h2,
+html[data-skin="bento"] .article-entry h3 {
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif;
+  counter-increment: bento-h;
+  display: flex; align-items: center; gap: 12px;
+  color: #3a2c1c;
+}
+html[data-skin="bento"] .article-entry h2::before,
+html[data-skin="bento"] .article-entry h3::before {
+  content: counter(bento-h, decimal-leading-zero);
+  font-size: 13px; letter-spacing: 1px;
+  background: #e0601f; color: #fff;
+  border-radius: 999px; padding: 3px 12px;
+  flex: none;
+}
+html[data-skin="bento"] .article-entry h3::before { content: "·"; background: #f2a541; }
+
+/* ---------- 组件⑤：引用块与代码块换造型 ---------- */
+html[data-skin="bento"] .article-entry blockquote {
+  position: relative;
+  margin: 1.6em 0; padding: 26px 26px 26px 34px;
+  background: #fbf3e4; border: 1px dashed #d8b48a; border-radius: 4px;
+  color: #5c452c;
+}
+html[data-skin="bento"] .article-entry blockquote::before {
+  content: "\201C";               /* 大引号 */
+  position: absolute; top: -6px; left: 12px;
+  font-size: 56px; line-height: 1; color: #d8b48a;
+  font-family: Georgia, serif;
+}
+html[data-skin="bento"] .article-entry pre {
+  background: #2e2016; border: none;
+  border-radius: 14px; padding: 20px 22px;
+  box-shadow: inset 0 0 0 1px #4a3524;
+}
+html[data-skin="bento"] .article-entry pre code { color: #f3e3cd; }
+html[data-skin="bento"] .article-entry code {
+  background: #f6e7d4; color: #6d3a14; border-radius: 6px; padding: 1px 6px;
+}
+
+/* ---------- 文章元信息/标签/分页的便当化 ---------- */
+html[data-skin="bento"] .article-meta { color: #8a6a45; margin-bottom: 18px; }
+html[data-skin="bento"] .article-meta .article-date {
+  display: inline-block; background: #f6e7d4; color: #a8541f;
+  border-radius: 999px; padding: 2px 12px; font-size: 12px; letter-spacing: 1px;
+}
+html[data-skin="bento"] .article-category a,
+html[data-skin="bento"] .article-tag a {
+  display: inline-block; border: 1px solid #e6ddcb; border-radius: 999px;
+  padding: 1px 10px; margin: 0 6px 6px 0; font-size: 12px; color: #8a5a2c;
+  background: #fffdf8;
+}
+html[data-skin="bento"] #page-nav a,
+html[data-skin="bento"] #page-nav span {
+  background: #fffdf8; border-color: #e6ddcb; color: #6d3a14; border-radius: 10px;
+}
+html[data-skin="bento"] #page-nav .current { background: #e0601f; border-color: #e0601f; color: #fff; }
+html[data-skin="bento"] #footer-info { border-top: 0; color: #8a6a45; }
+html[data-skin="bento"] ::selection { background: #f2c98a; color: #33261a; }
