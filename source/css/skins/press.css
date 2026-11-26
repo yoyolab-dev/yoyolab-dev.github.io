@@ -1,0 +1,122 @@
+/* ============================================================
+   报纸 Press —— 米米娅的手账 · 组件级皮肤（第 12 套，2026-11-26）
+   作用域 html[data-skin="press"]。概念：早报头版。
+   ① 首页索引改成报纸三栏（大衬线 masthead、三大栏列表、细规线）
+   ② 大号日期数字（文章日期变成油墨黑的大数字）
+   ③ 文章页变宽栏报纸正文（单栏加宽、首字下沉、衬线 everything）
+   ④ 引文用报纸"提要框"，代码块换油墨黑底白字
+   配色：新闻纸本白 + 油墨黑 + 一点套红（仅链接hover）
+   ============================================================ */
+
+/* ---------- 新闻纸配色 ---------- */
+html[data-skin="press"] body,
+html[data-skin="press"] #wrap {
+  background-color: #f7f4ec;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+html[data-skin="press"] body { color: #1a1712; }
+html[data-skin="press"] a { color: #1a1712; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+html[data-skin="press"] a:hover { color: #a52a1a; text-decoration-color: #a52a1a; }
+
+/* ---------- 头图 masthead ---------- */
+html[data-skin="press"] #header { border-bottom: 3px double #1a1712; }
+html[data-skin="press"] #banner { filter: grayscale(.9) contrast(1.08); }
+html[data-skin="press"] #logo,
+html[data-skin="press"] #subtitle,
+html[data-skin="press"] .main-nav-link,
+html[data-skin="press"] .nav-icon { color: #fffdf6; text-shadow: 0 1px 6px rgba(20, 16, 10, .6); }
+html[data-skin="press"] #subtitle { font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif; letter-spacing: 2px; }
+
+/* ---------- 组件①：索引 = 报纸三栏 ---------- */
+html[data-skin="press"] .outer { max-width: 1120px; margin: 0 auto; }
+html[data-skin="press"] #main {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 26px; padding: 26px 18px 50px; align-items: start;
+  border-top: 1px solid #1a1712; margin-top: 22px;
+}
+@media (max-width: 900px) {
+  html[data-skin="press"] #main { grid-template-columns: 1fr; gap: 16px; }
+}
+html[data-skin="press"] .archive-article {
+  margin: 0; break-inside: avoid;
+  border-bottom: 1px solid #c9c2b2; padding: 14px 0 16px;
+}
+html[data-skin="press"] .archive-article-inner {
+  background: transparent; border: 0; box-shadow: none; border-radius: 0;
+  padding: 0; transition: none;
+}
+html[data-skin="press"] .archive-article-inner:hover { transform: none; box-shadow: none; }
+html[data-skin="press"] .archive-article-date {
+  display: block; background: transparent; border-radius: 0; padding: 0;
+  font-family: Georgia, "Times New Roman", serif; font-size: 26px; font-weight: 700;
+  letter-spacing: 1px; color: #1a1712; line-height: 1.1;
+}
+html[data-skin="press"] .archive-article-title {
+  margin: 8px 0 0; font-size: 17px; line-height: 1.45;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+}
+html[data-skin="press"] .archive-article-title a { text-decoration: none; }
+html[data-skin="press"] .archive-article-title a:hover { color: #a52a1a; text-decoration: underline; }
+
+/* ---------- 组件③：文章页 = 宽栏报纸正文 ---------- */
+html[data-skin="press"] #main > .article { max-width: 820px; margin: 26px auto 44px; }
+html[data-skin="press"] .article-inner {
+  background: #fbf8f1; border: 0; border-radius: 0; box-shadow: none;
+  padding: 40px 48px 46px; border-top: 3px double #1a1712; border-bottom: 1px solid #1a1712;
+}
+html[data-skin="press"] .article-title,
+html[data-skin="press"] .article-entry h2,
+html[data-skin="press"] .article-entry h3,
+html[data-skin="press"] .article-entry h4 {
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif; color: #1a1712;
+}
+html[data-skin="press"] .article-title { font-size: 28px; line-height: 1.35; }
+html[data-skin="press"] .article-meta {
+  color: #5c564a; border-bottom: 1px solid #c9c2b2; padding-bottom: 10px; margin-bottom: 18px;
+  font-family: Georgia, serif; letter-spacing: 1px;
+}
+html[data-skin="press"] .article-entry { font-size: 17px; line-height: 1.95; color: #241f18; }
+html[data-skin="press"] .article-entry p { margin: 1.05em 0; text-align: justify; }
+html[data-skin="press"] .article-entry > p:first-of-type::first-letter {
+  font-size: 3.4em; line-height: .88; float: left; padding: 8px 12px 0 0;
+  font-family: Georgia, "Times New Roman", serif; font-weight: 700; color: #1a1712;
+}
+html[data-skin="press"] .article-entry a { color: #1a1712; }
+html[data-skin="press"] .article-entry a:hover { color: #a52a1a; }
+
+/* ---------- 组件④：提要框引文 + 油墨代码块 ---------- */
+html[data-skin="press"] .article-entry blockquote {
+  background: #f2ece0; border: 1px solid #1a1712; border-left-width: 4px;
+  border-radius: 0; color: #241f18; margin: 1.5em 0; padding: 16px 20px;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+}
+html[data-skin="press"] .article-entry blockquote p { margin: .3em 0; }
+html[data-skin="press"] .article-entry pre {
+  background: #17140f; border-radius: 0; border: 1px solid #17140f;
+}
+html[data-skin="press"] .article-entry pre code { color: #f0ead9; }
+html[data-skin="press"] .article-entry code { background: #ece5d4; border-radius: 0; color: #1a1712; }
+html[data-skin="press"] .article-entry hr { border: 0; border-top: 1px solid #c9c2b2; height: 0; }
+html[data-skin="press"] .article-entry table th { border-bottom: 2px solid #1a1712; }
+html[data-skin="press"] .article-entry table td { border-bottom: 1px solid #d8d1bf; }
+
+/* ---------- 标签胶囊改油墨小铅字 ---------- */
+html[data-skin="press"] .article-category a,
+html[data-skin="press"] .article-tag a {
+  display: inline-block; border: 1px solid #1a1712; border-radius: 0;
+  padding: 0 8px; margin: 0 6px 6px 0; font-size: 12px; color: #1a1712;
+  background: transparent; font-family: Georgia, serif; letter-spacing: 1px;
+}
+html[data-skin="press"] .article-category a:hover,
+html[data-skin="press"] .article-tag a:hover { background: #1a1712; color: #f7f4ec; }
+
+/* ---------- 分页/页脚 ---------- */
+html[data-skin="press"] #page-nav a,
+html[data-skin="press"] #page-nav span {
+  background: transparent; border: 1px solid #1a1712; color: #1a1712; border-radius: 0;
+  font-family: Georgia, serif; letter-spacing: 1px;
+}
+html[data-skin="press"] #page-nav .current { background: #1a1712; color: #f7f4ec; border-color: #1a1712; }
+html[data-skin="press"] #footer-info { border-top: 3px double #1a1712; color: #5c564a; }
+html[data-skin="press"] ::selection { background: #1a1712; color: #f7f4ec; }

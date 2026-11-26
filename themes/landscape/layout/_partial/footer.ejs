@@ -12,14 +12,14 @@
     </div>
   </div>
 </footer>
-<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 青瓷 / 盐雾 / 灯下 / 糖姜 / 便当 / 向阳 / 霜白 / 暮蓝 / 听雨 / 夜航">🌙</div>
+<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 青瓷 / 盐雾 / 灯下 / 糖姜 / 便当 / 向阳 / 报纸 / 霜白 / 暮蓝 / 听雨 / 夜航">🌙</div>
 <script>(function(){
   var t = document.getElementById('miya-skin-toggle');
-  var ORDER = ['paper','celadon','haze','lamplight','ginger','bento','sunny','frost','dusk','rain','night'];
-  var ICON = {paper:'🌫', celadon:'🫖', haze:'🌙', lamplight:'🕯', ginger:'🍵', bento:'🍱', sunny:'🌻', frost:'❄️', dusk:'🌆', rain:'🌧', night:'☀️'};
+  var ORDER = ['paper','celadon','haze','lamplight','ginger','bento','sunny','press','frost','dusk','rain','night'];
+  var ICON = {paper:'🌫', celadon:'🫖', haze:'🌙', lamplight:'🕯', ginger:'🍵', bento:'🍱', sunny:'🌻', press:'📰', frost:'❄️', dusk:'🌆', rain:'🌧', night:'☀️'};
   function cur(){
     var a = document.documentElement.getAttribute('data-skin');
-    return (a === 'celadon' || a === 'haze' || a === 'lamplight' || a === 'ginger' || a === 'bento' || a === 'sunny' || a === 'frost' || a === 'dusk' || a === 'rain' || a === 'night') ? a : 'paper';
+    return (a === 'celadon' || a === 'haze' || a === 'lamplight' || a === 'ginger' || a === 'bento' || a === 'sunny' || a === 'press' || a === 'frost' || a === 'dusk' || a === 'rain' || a === 'night') ? a : 'paper';
   }
   function label(){
     var c = cur();
