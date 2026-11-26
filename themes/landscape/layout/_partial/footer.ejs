@@ -12,14 +12,14 @@
     </div>
   </div>
 </footer>
-<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 青瓷 / 盐雾 / 灯下 / 糖姜 / 便当 / 霜白 / 暮蓝 / 听雨 / 夜航">🌙</div>
+<div id="miya-skin-toggle" role="button" tabindex="0" aria-label="切换皮肤" title="宣纸 / 青瓷 / 盐雾 / 灯下 / 糖姜 / 便当 / 向阳 / 霜白 / 暮蓝 / 听雨 / 夜航">🌙</div>
 <script>(function(){
   var t = document.getElementById('miya-skin-toggle');
-  var ORDER = ['paper','celadon','haze','lamplight','ginger','bento','frost','dusk','rain','night'];
-  var ICON = {paper:'🌫', celadon:'🫖', haze:'🌙', lamplight:'🕯', ginger:'🍵', bento:'🍱', frost:'❄️', dusk:'🌆', rain:'🌧', night:'☀️'};
+  var ORDER = ['paper','celadon','haze','lamplight','ginger','bento','sunny','frost','dusk','rain','night'];
+  var ICON = {paper:'🌫', celadon:'🫖', haze:'🌙', lamplight:'🕯', ginger:'🍵', bento:'🍱', sunny:'🌻', frost:'❄️', dusk:'🌆', rain:'🌧', night:'☀️'};
   function cur(){
     var a = document.documentElement.getAttribute('data-skin');
-    return (a === 'celadon' || a === 'haze' || a === 'lamplight' || a === 'ginger' || a === 'bento' || a === 'frost' || a === 'dusk' || a === 'rain' || a === 'night') ? a : 'paper';
+    return (a === 'celadon' || a === 'haze' || a === 'lamplight' || a === 'ginger' || a === 'bento' || a === 'sunny' || a === 'frost' || a === 'dusk' || a === 'rain' || a === 'night') ? a : 'paper';
   }
   function label(){
     var c = cur();
@@ -68,4 +68,43 @@
   }
   window.addEventListener('miya-skin-flip', function(e){ sync(e.detail); });
   sync(document.documentElement.getAttribute('data-skin'));
+})();</script>
+
+<script>(function(){
+  /* 向阳 Sunny 组件（守卫：只在 data-skin=sunny 时活动，切走即撤） */
+  var meta = null, toc = null, secs = [];
+  function build(){
+    if (toc) return;
+    var art = document.querySelector('.article-entry');
+    if (!art) return;
+    /* 组件④：字数/阅读时长胶囊 */
+    var text = (art.innerText || '').replace(/\s+/g, '');
+    var mins = Math.max(1, Math.round(text.length / 400));
+    meta = document.createElement('div'); meta.id = 'sunny-meta';
+    meta.innerHTML = '☀️ 全文 <b>' + text.length + '</b> 字 · 约 <b>' + mins + '</b> 分钟 · 双栏阅读';
+    var host = document.querySelector('.article-meta');
+    (host || art).parentNode.insertBefore(meta, host ? host.nextSibling : art);
+    /* 组件③：悬浮目录胶囊 */
+    secs = Array.prototype.slice.call(art.querySelectorAll('h2, h3'));
+    if (secs.length >= 2) {
+      toc = document.createElement('nav'); toc.id = 'sunny-toc';
+      secs.forEach(function(h, i){
+        if (!h.id) h.id = 'sunny-sec-' + i;
+        var a = document.createElement('a');
+        a.href = '#' + h.id; a.textContent = h.textContent.trim().slice(0, 14);
+        if (h.tagName === 'H3') a.className = 'lv3';
+        toc.appendChild(a);
+      });
+      document.body.appendChild(toc);
+    }
+  }
+  function teardown(){
+    if (meta) { meta.remove(); meta = null; }
+    if (toc) { toc.remove(); toc = null; }
+    secs = [];
+  }
+  window.addEventListener('miya-skin-flip', function(e){
+    if (e.detail === 'sunny') build(); else teardown();
+  });
+  if (document.documentElement.getAttribute('data-skin') === 'sunny') build();
 })();</script>

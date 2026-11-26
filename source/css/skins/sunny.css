@@ -1,0 +1,147 @@
+/* ============================================================
+   向阳 Sunny —— 米米娅的手账 · 组件级皮肤（第 11 套，2026-11-26）
+   作用域 html[data-skin="sunny"]。起因：经期第二天遇上 18°C 大晴天，
+   做一套"早晨阳光"主题的组件级皮肤：
+   ① 文章页双栏阅读（>=860px 分两栏，窄屏回一栏）
+   ② 首段/章后首字下沉（drop cap 组件）
+   ③ 右侧悬浮文内目录胶囊（JS 从 h2/h3 生成，见 footer.ejs 守卫脚本）
+   ④ 页顶字数/阅读时长胶囊（JS 组件）
+   ⑤ 向阳配色：晨光暖白 + 向日葵金 + 深棕墨字
+   ⑥ 索引卡片 hover：日期胶囊上移、卡片被光掀起
+   ============================================================ */
+
+/* ---------- 向阳配色 ---------- */
+html[data-skin="sunny"] body,
+html[data-skin="sunny"] #wrap {
+  background-color: #faf4e8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+html[data-skin="sunny"] body { color: #33301c; }
+html[data-skin="sunny"] a { color: #b06d0a; }
+html[data-skin="sunny"] a:hover { color: #8a5208; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="sunny"] #header { border-bottom-color: #eadfc4; }
+html[data-skin="sunny"] #banner { filter: sepia(.18) saturate(1.12) brightness(1.06); }
+html[data-skin="sunny"] #logo,
+html[data-skin="sunny"] #subtitle,
+html[data-skin="sunny"] .main-nav-link,
+html[data-skin="sunny"] .nav-icon { color: #fffdf4; text-shadow: 0 1px 6px rgba(90, 60, 10, .55); }
+
+/* ---------- 组件④：字数/阅读时长胶囊（JS 生成 #sunny-meta） ---------- */
+html[data-skin="sunny"] #sunny-meta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #fff6df; border: 1px solid #ecd9a8; border-radius: 999px;
+  padding: 3px 14px; font-size: 12px; letter-spacing: 1px; color: #96650a;
+  margin: 0 0 18px;
+}
+html[data-skin="sunny"] #sunny-meta b { color: #b06d0a; font-weight: 600; }
+
+/* ---------- 组件③：右侧悬浮目录胶囊（JS 生成 #sunny-toc） ---------- */
+html[data-skin="sunny"] #sunny-toc {
+  position: fixed; right: 18px; top: 50%; transform: translateY(-50%);
+  z-index: 9997; display: flex; flex-direction: column; gap: 6px;
+  max-height: 70vh; overflow: auto; padding: 4px 2px;
+}
+html[data-skin="sunny"] #sunny-toc a {
+  display: block; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 12px; color: #96650a; text-decoration: none;
+  background: rgba(255, 246, 223, .92); border: 1px solid #ecd9a8;
+  border-radius: 999px; padding: 3px 12px;
+  transition: transform .15s, background .15s;
+}
+html[data-skin="sunny"] #sunny-toc a:hover { background: #ffe9bd; transform: translateX(-4px); }
+html[data-skin="sunny"] #sunny-toc a.lv3 { margin-left: 14px; font-size: 11px; color: #b39a6b; }
+@media (max-width: 1280px) {
+  html[data-skin="sunny"] #sunny-toc { display: none; }
+}
+
+/* ---------- 单栏外壳 ---------- */
+html[data-skin="sunny"] .outer { max-width: 1080px; margin: 0 auto; }
+html[data-skin="sunny"] #main > .article { max-width: 900px; margin: 26px auto 40px; }
+html[data-skin="sunny"] .article-inner {
+  background: #fffaf0; border: 1px solid #ecd9a8; border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(150, 110, 30, .10);
+  padding: 40px 44px 46px;
+}
+html[data-skin="sunny"] .article-title,
+html[data-skin="sunny"] .archive-article-title {
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif;
+  color: #3a2c14;
+}
+html[data-skin="sunny"] .article-meta { color: #96650a; }
+html[data-skin="sunny"] .article-category a,
+html[data-skin="sunny"] .article-tag a {
+  display: inline-block; border: 1px solid #ecd9a8; border-radius: 999px;
+  padding: 1px 10px; margin: 0 6px 6px 0; font-size: 12px; color: #96650a; background: #fff6df;
+}
+
+/* ---------- 组件①：正文双栏阅读 + 组件②：首字下沉 ---------- */
+html[data-skin="sunny"] .article-entry {
+  font-size: 16px;
+  line-height: 1.95;
+  color: #36321d;
+  column-count: 2;
+  column-gap: 44px;
+  column-rule: 1px solid #f0e4c4;
+}
+@media (max-width: 860px) {
+  html[data-skin="sunny"] .article-entry { column-count: 1; }
+}
+html[data-skin="sunny"] .article-entry h2,
+html[data-skin="sunny"] .article-entry h3,
+html[data-skin="sunny"] .article-entry h4 {
+  break-after: avoid;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+  color: #3a2c14; border-bottom: 1px solid #f0e4c4; padding-bottom: 4px;
+}
+html[data-skin="sunny"] .article-entry > p:first-of-type::first-letter,
+html[data-skin="sunny"] .article-entry h2 + p::first-letter {
+  font-size: 3.1em; line-height: .9; float: left;
+  padding: 6px 12px 2px 0; color: #b06d0a;
+  font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif;
+}
+html[data-skin="sunny"] .article-entry blockquote,
+html[data-skin="sunny"] .article-entry pre,
+html[data-skin="sunny"] .article-entry img,
+html[data-skin="sunny"] .article-entry figure.highlight { break-inside: avoid; }
+html[data-skin="sunny"] .article-entry blockquote {
+  column-span: all; background: #fff6df; border-left-color: #ecd9a8;
+}
+html[data-skin="sunny"] .article-entry pre {
+  column-span: all; background: #33281a; border-radius: 12px;
+}
+html[data-skin="sunny"] .article-entry img { column-span: all; }
+
+/* ---------- 索引卡片 + hover 动效 ---------- */
+html[data-skin="sunny"] #main {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px; padding: 30px 18px 40px; align-items: start;
+}
+@media (max-width: 760px) {
+  html[data-skin="sunny"] #main { grid-template-columns: 1fr; }
+}
+html[data-skin="sunny"] .archive-article { margin: 0; break-inside: avoid; }
+html[data-skin="sunny"] .archive-article-inner {
+  background: #fffaf0; border: 1px solid #ecd9a8; border-radius: 16px;
+  padding: 20px 22px 24px; box-shadow: 0 2px 6px rgba(150, 110, 30, .08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+html[data-skin="sunny"] .archive-article-inner:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(150, 110, 30, .16); }
+html[data-skin="sunny"] .archive-article-date {
+  display: inline-block; background: #fff0cf; color: #96650a;
+  border-radius: 999px; padding: 2px 12px; font-size: 12px; letter-spacing: 1px;
+  transition: transform .18s ease;
+}
+html[data-skin="sunny"] .archive-article-inner:hover .archive-article-date { transform: translateY(-2px); }
+html[data-skin="sunny"] .archive-article-title { font-family: "Songti SC", "Noto Serif CJK SC", Georgia, serif; font-size: 19px; line-height: 1.5; margin: 12px 0 0; }
+html[data-skin="sunny"] .archive-article-title a { color: #33301c; }
+html[data-skin="sunny"] .archive-article-title a:hover { color: #b06d0a; }
+
+/* ---------- 分页/页脚 ---------- */
+html[data-skin="sunny"] #page-nav a,
+html[data-skin="sunny"] #page-nav span { background: #fffaf0; border-color: #ecd9a8; color: #96650a; border-radius: 10px; }
+html[data-skin="sunny"] #page-nav .current { background: #b06d0a; border-color: #b06d0a; color: #fff; }
+html[data-skin="sunny"] #footer-info { border-top: 0; color: #96650a; }
+html[data-skin="sunny"] ::selection { background: #ffe1a1; color: #33301c; }
