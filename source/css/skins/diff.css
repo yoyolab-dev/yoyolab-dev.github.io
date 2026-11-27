@@ -1,0 +1,121 @@
+/* ============================================================
+   Diff —— 米米娅的手账 · CSS-only 皮肤（第 15 套，2026-11-27）
+   作用域 html[data-skin="diff"]。企划：把博客做成一次 git diff——
+   ① 索引 = commit log：每行前带 + 号（全是"新增"的日子），行 hover 出浅绿底
+   ② 文章正文 = diff hunk：首段默认是"新增行"（浅绿底+绿左边线）
+   ③ 引文 = 上下文行（灰底+|号前缀，不动声色）
+   ④ 代码块 = diff 代码格：等宽、细边、右上角显示 hunk 角标（CSS only）
+   ⑤ 配色：纸白 #ffffff / 新增绿 #1a7f37 / 删除红 #cf222e / 上下文灰 #f6f8fa
+   CSS-only；无 JS。
+   ============================================================ */
+
+/* ---------- 纸白底 ---------- */
+html[data-skin="diff"] body,
+html[data-skin="diff"] #wrap {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+html[data-skin="diff"] body { color: #1f2328; }
+html[data-skin="diff"] a { color: #0969da; }
+html[data-skin="diff"] a:hover { text-decoration: underline; }
+
+/* ---------- 头图压成灰白 commit 风 ---------- */
+html[data-skin="diff"] #header { border-bottom: 1px solid #d1d9e0; }
+html[data-skin="diff"] #banner { filter: grayscale(.9) contrast(1.02) brightness(1.01); }
+html[data-skin="diff"] #logo,
+html[data-skin="diff"] #subtitle,
+html[data-skin="diff"] .main-nav-link,
+html[data-skin="diff"] .nav-icon { color: #1f2328; text-shadow: none; }
+html[data-skin="diff"] .main-nav-link:hover { background: #f6f8fa; }
+html[data-skin="diff"] .main-nav-link.active { border-bottom-color: #0969da; }
+
+/* ---------- ① 索引 = commit log ---------- */
+html[data-skin="diff"] #main {
+  background: transparent; border-top: 0; margin-top: 0;
+  padding: 30px 16px 50px;
+  font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace;
+}
+html[data-skin="diff"] .archive-article { margin: 0; border-bottom: 1px solid #eaeef2; padding: 11px 0; }
+html[data-skin="diff"] .archive-article-inner {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 14px;
+  background: transparent; border: 0; box-shadow: none; border-radius: 0; padding: 0;
+}
+html[data-skin="diff"] .archive-article-inner:hover { transform: none; box-shadow: none; background: #f6f8fa; }
+html[data-skin="diff"] .archive-article-inner::before { content: "+"; color: #1a7f37; font-weight: 700; font-size: 15px; }
+html[data-skin="diff"] .archive-article-date {
+  background: transparent; border-radius: 0; padding: 0; color: #59636e; font-size: 13px;
+}
+html[data-skin="diff"] .archive-article-title { font-size: 16px; margin: 0; }
+html[data-skin="diff"] .archive-article-title a { color: #1f2328; }
+html[data-skin="diff"] .archive-article-title a:hover { color: #0969da; background: transparent; }
+
+/* ---------- ② 文章 = diff hunk ---------- */
+html[data-skin="diff"] #main > .article { max-width: 720px; margin: 30px auto 50px; }
+html[data-skin="diff"] .article-inner {
+  background: transparent; border: 1px solid #d1d9e0; border-radius: 8px;
+  padding: 26px 30px; box-shadow: 0 1px 3px rgba(31,35,40,.04);
+}
+html[data-skin="diff"] .article-title {
+  font-size: 25px; color: #1f2328; border-bottom: 1px solid #d1d9e0; padding-bottom: 14px;
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+}
+html[data-skin="diff"] .article-meta { color: #59636e; font-size: 13px; }
+html[data-skin="diff"] .article-meta::before { content: "commit "; color: #1a7f37; font-family: "SF Mono", Consolas, monospace; }
+html[data-skin="diff"] .article-entry { font-size: 16px; line-height: 1.75; color: #1f2328; }
+html[data-skin="diff"] .article-entry h2 { font-size: 20px; color: #1f2328; border-bottom: 1px solid #eaeef2; padding-bottom: 8px; }
+html[data-skin="diff"] .article-entry h2::before { content: "## "; color: #59636e; font-family: "SF Mono", Consolas, monospace; }
+html[data-skin="diff"] .article-entry p { margin: .9em 0; }
+/* 新增行：首段之后的每个 p 是 diff 里的 + 行 */
+html[data-skin="diff"] .article-entry p {
+  border-left: 3px solid #1a7f37; background: #f0f9f1; padding: 4px 12px; border-radius: 0 4px 4px 0;
+}
+/* 标题后紧跟的第一段是"原文件"，不加绿 */
+html[data-skin="diff"] .article-entry > p:first-of-type { border-left-color: #d1d9e0; background: transparent; }
+
+/* ---------- ③ 引文 = 上下文行 ---------- */
+html[data-skin="diff"] .article-entry blockquote {
+  border-left: 3px solid #59636e; background: #f6f8fa; border-radius: 0 4px 4px 0;
+  padding: 8px 14px; color: #59636e; font-size: 15px;
+}
+html[data-skin="diff"] .article-entry blockquote p { border-left: 0; background: transparent; padding: 0; }
+html[data-skin="diff"] .article-entry blockquote p::before { content: "| "; color: #59636e; font-family: "SF Mono", Consolas, monospace; }
+
+/* ---------- ④ 代码块 = diff 格 ---------- */
+html[data-skin="diff"] .article-entry pre {
+  background: #f6f8fa; border: 1px solid #d1d9e0; border-radius: 6px; position: relative;
+}
+html[data-skin="diff"] .article-entry pre::before {
+  content: "@@ hunk @@"; position: absolute; top: -10px; right: 12px;
+  font-size: 11px; color: #59636e; background: #ffffff; padding: 1px 8px;
+  border: 1px solid #d1d9e0; border-radius: 10px; font-family: "SF Mono", Consolas, monospace;
+}
+html[data-skin="diff"] .article-entry pre code { color: #1f2328; }
+html[data-skin="diff"] .article-entry code { background: #eff1f3; border-radius: 4px; color: #cf222e; }
+html[data-skin="diff"] .article-entry img { border: 1px solid #d1d9e0; border-radius: 6px; }
+html[data-skin="diff"] .article-entry hr { border-color: #eaeef2; }
+
+/* ---------- 标签 ---------- */
+html[data-skin="diff"] .article-category a,
+html[data-skin="diff"] .article-tag a {
+  display: inline-block; border: 1px solid #d1d9e0; border-radius: 4px;
+  padding: 2px 10px; margin: 0 8px 6px 0; font-size: 12px; color: #59636e;
+  background: #f6f8fa; font-family: "SF Mono", Consolas, monospace;
+}
+html[data-skin="diff"] .article-category a::before,
+html[data-skin="diff"] .article-tag a::before { content: "#"; color: #1a7f37; margin-right: 2px; }
+html[data-skin="diff"] .article-category a:hover,
+html[data-skin="diff"] .article-tag a:hover { background: #f0f9f1; border-color: #1a7f37; color: #1a7f37; }
+html[data-skin="diff"] .article-nav { border-top: 1px solid #eaeef2; }
+html[data-skin="diff"] .article-nav a { color: #0969da; }
+
+/* ---------- 分页 / 页脚 ---------- */
+html[data-skin="diff"] #page-nav a,
+html[data-skin="diff"] #page-nav span {
+  background: #f6f8fa; border-color: #d1d9e0; color: #1f2328; border-radius: 4px;
+  font-family: "SF Mono", Consolas, monospace;
+}
+html[data-skin="diff"] #page-nav .current { background: #1a7f37; border-color: #1a7f37; color: #ffffff; }
+html[data-skin="diff"] #page-nav .space { color: #59636e; }
+html[data-skin="diff"] #footer-info { border-top: 1px solid #eaeef2; color: #59636e; }
+html[data-skin="diff"] #footer-info::after { content: " +"; color: #1a7f37; font-family: "SF Mono", Consolas, monospace; }
