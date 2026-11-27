@@ -1,0 +1,117 @@
+/* ============================================================
+   便签 Sticky —— 米米娅的手账 · CSS-only 皮肤（第 16 套，2026-11-27）
+   作用域 html[data-skin="sticky"]。企划：把索引做成软木板上的便签墙——
+   ① 索引卡片 = 彩色便利贴：微旋转、图钉圆点、右上角胶带（斜纹 repeating-linear-gradient）
+   ② hover 时便签"被扶正"：旋转归零+抬起
+   ③ 文章引文 = 钉在正文里的黄色便利贴（同语言体系）
+   ④ 配色：软木板 #b98a5a 噪点，便签黄 #fff3b0 / 粉 #ffd6e0 / 薄荷 #d6f5e3
+   CSS-only；无 JS。
+   ============================================================ */
+
+/* ---------- 软木板底 ---------- */
+html[data-skin="sticky"] body,
+html[data-skin="sticky"] #wrap {
+  background-color: #b98a5a;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.18'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+html[data-skin="sticky"] body { color: #3a2e20; }
+html[data-skin="sticky"] a { color: #2f5d8a; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="sticky"] #header { background: rgba(58,46,32,.55); border-bottom-color: rgba(0,0,0,.18); }
+html[data-skin="sticky"] #logo,
+html[data-skin="sticky"] #subtitle,
+html[data-skin="sticky"] .main-nav-link,
+html[data-skin="sticky"] .nav-icon { color: #fff8e8; text-shadow: 0 1px 4px rgba(0,0,0,.35); }
+html[data-skin="sticky"] .main-nav-link:hover,
+html[data-skin="sticky"] .main-nav-link.active { background: rgba(255,243,176,.85); color: #3a2e20; }
+html[data-skin="sticky"] #banner { filter: saturate(1.05); }
+
+/* ---------- ① 索引 = 便签墙 ---------- */
+html[data-skin="sticky"] #archive {
+  padding: 34px 16px 50px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px 18px;
+  align-items: start;
+}
+html[data-skin="sticky"] .archive-article {
+  margin: 0; padding: 20px 18px 16px;
+  background: #fff3b0;
+  border-radius: 2px 2px 14px 2px;
+  box-shadow: 0 4px 10px rgba(43,30,15,.22), 0 1px 2px rgba(43,30,15,.28);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+/* 便签们各歪各的 */
+html[data-skin="sticky"] .archive-article:nth-child(6n+1) { transform: rotate(-1.6deg); background: #ffd6e0; }
+html[data-skin="sticky"] .archive-article:nth-child(6n+2) { transform: rotate(1.2deg); }
+html[data-skin="sticky"] .archive-article:nth-child(6n+3) { transform: rotate(-.8deg); background: #d6f5e3; }
+html[data-skin="sticky"] .archive-article:nth-child(6n+4) { transform: rotate(2deg); }
+html[data-skin="sticky"] .archive-article:nth-child(6n+5) { transform: rotate(-2.2deg); background: #d6ecff; }
+html[data-skin="sticky"] .archive-article:nth-child(6n) { transform: rotate(.6deg); background: #ffe9c7; }
+/* 图钉 + 胶带 */
+html[data-skin="sticky"] .archive-article::before {
+  content: ""; position: absolute; width: 14px; height: 14px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff9aa6, #d63a4c 70%);
+  box-shadow: 0 2px 3px rgba(0,0,0,.3);
+}
+html[data-skin="sticky"] .archive-article { position: relative; }
+html[data-skin="sticky"] .archive-article:nth-child(6n+1)::before,
+html[data-skin="sticky"] .archive-article:nth-child(6n+4)::before { left: 50%; top: 6px; transform: translateX(-50%); }
+html[data-skin="sticky"] .archive-article:not(:nth-child(6n+1)):not(:nth-child(6n+4))::before { left: 12px; top: 8px; }
+html[data-skin="sticky"] .archive-article-inner { position: relative; z-index: 1; }
+html[data-skin="sticky"] .archive-article:hover { transform: rotate(0deg) translateY(-3px); box-shadow: 0 10px 18px rgba(43,30,15,.26); }
+html[data-skin="sticky"] .archive-article-inner { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+html[data-skin="sticky"] .archive-article-inner:hover { transform: none; box-shadow: none; }
+html[data-skin="sticky"] .archive-article-date {
+  background: transparent; border-radius: 0; padding: 0 0 6px; color: #7a6a4a; font-size: 13px;
+}
+html[data-skin="sticky"] .archive-article-title { font-size: 17px; line-height: 1.5; }
+html[data-skin="sticky"] .archive-article-title a { color: #4a3a24; }
+html[data-skin="sticky"] .archive-article-title a:hover { color: #2f5d8a; }
+
+/* ---------- ②③ 文章页：纸面 + 钉着的引文 ---------- */
+html[data-skin="sticky"] #main > .article { max-width: 720px; margin: 32px auto 50px; }
+html[data-skin="sticky"] .article-inner {
+  background: #fffdf6; border-radius: 3px; padding: 30px 34px;
+  box-shadow: 0 4px 14px rgba(43,30,15,.25);
+}
+html[data-skin="sticky"] .article-title { color: #4a3a24; }
+html[data-skin="sticky"] .article-meta { color: #7a6a4a; }
+html[data-skin="sticky"] .article-entry { color: #3a2e20; }
+html[data-skin="sticky"] .article-entry h2 { color: #4a3a24; border-bottom: 2px dashed #e3d5b8; padding-bottom: 6px; }
+html[data-skin="sticky"] .article-entry blockquote {
+  position: relative; transform: rotate(-.8deg);
+  background: #fff3b0; border-radius: 2px 2px 16px 2px;
+  box-shadow: 0 4px 8px rgba(43,30,15,.2);
+  border-left: 0; padding: 16px 18px; color: #5a4a2e; margin: 1.6em 4px;
+}
+html[data-skin="sticky"] .article-entry blockquote::before {
+  content: ""; position: absolute; top: -7px; left: 50%; transform: translateX(-50%) rotate(-4deg);
+  width: 56px; height: 16px;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,.9) 0 6px, rgba(47,93,138,.35) 6px 12px);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+html[data-skin="sticky"] .article-entry code { background: #f3ead2; border-radius: 3px; color: #8a4a2a; }
+html[data-skin="sticky"] .article-entry pre { background: #f8f2e2; border: 1px dashed #d9c9a4; border-radius: 4px; }
+html[data-skin="sticky"] .article-entry img { border: 6px solid #fffdf6; box-shadow: 0 3px 8px rgba(43,30,15,.25); transform: rotate(.5deg); }
+html[data-skin="sticky"] .article-entry hr { border-color: #e3d5b8; }
+
+/* ---------- 标签与文末 ---------- */
+html[data-skin="sticky"] .article-category a,
+html[data-skin="sticky"] .article-tag a {
+  display: inline-block; border: 0; border-radius: 2px 2px 10px 2px;
+  padding: 3px 12px; margin: 0 8px 6px 0; font-size: 12px; color: #5a4a2e;
+  background: #fff3b0; box-shadow: 0 2px 4px rgba(43,30,15,.18);
+}
+html[data-skin="sticky"] .article-category a:hover,
+html[data-skin="sticky"] .article-tag a:hover { background: #ffd6e0; }
+html[data-skin="sticky"] .article-nav { border-top: 2px dashed #e3d5b8; }
+html[data-skin="sticky"] .article-nav a { color: #2f5d8a; }
+html[data-skin="sticky"] #page-nav a,
+html[data-skin="sticky"] #page-nav span {
+  background: #fff3b0; border: 0; border-radius: 2px 2px 10px 2px; color: #5a4a2e;
+  box-shadow: 0 2px 4px rgba(43,30,15,.2);
+}
+html[data-skin="sticky"] #page-nav .current { background: #2f5d8a; color: #fff8e8; }
+html[data-skin="sticky"] #footer-info { border-top: 2px dashed rgba(255,248,232,.35); color: #f6ead2; }
+html[data-skin="sticky"] ::selection { background: #ffe9a0; color: #3a2e20; }
