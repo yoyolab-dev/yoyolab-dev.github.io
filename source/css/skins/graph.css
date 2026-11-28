@@ -1,0 +1,106 @@
+/* ============================================================
+   方格 Graph —— 米米娅的手账 · CSS-only 皮肤（第 17 套，2026-11-28）
+   作用域 html[data-skin="graph"]。企划：给博客铺一张 24px 坐标纸——
+   ① 索引 = 方格阵：卡片按 grid 对齐，hover 时格子上浮一格
+   ② 文章正文 = 稿纸：淡蓝横线 + 左侧红线版心，行高与格宽对齐
+   ③ 头图保留但降饱和，让纸的秩序当主角
+   ④ 配色：纸白 #fbfcf8 / 格线 #cfe0ec / 红线 #e8a0a8 / 墨色 #22303c
+   CSS-only；无 JS。
+   ============================================================ */
+
+/* ---------- 坐标纸底 ---------- */
+html[data-skin="graph"] body,
+html[data-skin="graph"] #wrap {
+  background-color: #fbfcf8;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 23px, #cfe0ec 23px 24px),
+    repeating-linear-gradient(90deg, transparent 0 23px, #cfe0ec 23px 24px),
+    repeating-linear-gradient(0deg, transparent 0 119px, #a9c6da 119px 120px),
+    repeating-linear-gradient(90deg, transparent 0 119px, #a9c6da 119px 120px);
+  background-size: 480px 480px, 480px 480px, 480px 480px, 480px 480px;
+}
+html[data-skin="graph"] body { color: #22303c; }
+html[data-skin="graph"] a { color: #1a4f7a; }
+
+/* ---------- 头图 ---------- */
+html[data-skin="graph"] #header { background: #f3f7fa; border-bottom: 1px solid #a9c6da; }
+html[data-skin="graph"] #banner { filter: saturate(.75) contrast(1.02); }
+html[data-skin="graph"] #logo,
+html[data-skin="graph"] #subtitle,
+html[data-skin="graph"] .main-nav-link,
+html[data-skin="graph"] .nav-icon { color: #22303c; text-shadow: none; }
+html[data-skin="graph"] .main-nav-link:hover,
+html[data-skin="graph"] .main-nav-link.active { background: #e3edf3; }
+
+/* ---------- ① 索引 = 方格阵 ---------- */
+html[data-skin="graph"] #archive {
+  padding: 36px 12px 56px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(252px, 1fr)); gap: 24px 24px;
+  align-items: start;
+}
+html[data-skin="graph"] .archive-article {
+  margin: 0; padding: 20px 20px 16px; background: rgba(255,255,255,.88);
+  border: 1px solid #a9c6da; border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(169,198,218,.55);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+html[data-skin="graph"] .archive-article:hover {
+  transform: translate(-2px,-2px); box-shadow: 5px 5px 0 rgba(169,198,218,.8);
+}
+html[data-skin="graph"] .archive-article-inner { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+html[data-skin="graph"] .archive-article-inner:hover { transform: none; box-shadow: none; }
+html[data-skin="graph"] .archive-article-date {
+  background: transparent; border-radius: 0; padding: 0 0 6px; color: #5b7280; font-size: 13px;
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+}
+html[data-skin="graph"] .archive-article-title { font-size: 17px; line-height: 1.5; }
+html[data-skin="graph"] .archive-article-title a { color: #22303c; }
+html[data-skin="graph"] .archive-article-title a:hover { color: #1a4f7a; }
+
+/* ---------- ② 文章页 = 稿纸 ---------- */
+html[data-skin="graph"] #main { background: transparent; border-top: 0; margin-top: 0; }
+html[data-skin="graph"] #main > .article { max-width: 720px; margin: 32px auto 56px; }
+html[data-skin="graph"] .article-inner {
+  background-color: #fbfcf8;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 23px, #cfe0ec 23px 24px),
+    linear-gradient(90deg, transparent 76px, #e8a0a8 76px 77px, transparent 77px);
+  background-size: auto 24px, auto 24px;
+  border: 1px solid #a9c6da; border-radius: 2px;
+  box-shadow: 3px 3px 0 rgba(169,198,218,.55);
+  padding: 30px 34px 36px 96px;
+}
+html[data-skin="graph"] .article-title { color: #16324a; border-bottom: 1px solid #a9c6da; padding-bottom: 10px; }
+html[data-skin="graph"] .article-meta {
+  color: #5b7280; font-family: "SF Mono", "Cascadia Code", Consolas, monospace; font-size: 13px;
+}
+html[data-skin="graph"] .article-entry { font-size: 16.5px; line-height: 24px; color: #22303c; }
+html[data-skin="graph"] .article-entry h2 { color: #16324a; }
+html[data-skin="graph"] .article-entry h2::before { content: "▸ "; color: #1a4f7a; }
+html[data-skin="graph"] .article-entry p { margin: 12px 0; }
+html[data-skin="graph"] .article-entry blockquote {
+  border-left: 3px solid #1a4f7a; background: rgba(227,237,243,.7);
+  border-radius: 0 2px 2px 0; padding: 10px 16px; color: #3c5468;
+}
+html[data-skin="graph"] .article-entry code { background: #eef3f7; border-radius: 3px; color: #8a3a2a; }
+html[data-skin="graph"] .article-entry pre { background: #f3f7fa; border: 1px solid #a9c6da; border-radius: 2px; }
+html[data-skin="graph"] .article-entry img { border: 1px solid #a9c6da; border-radius: 2px; }
+html[data-skin="graph"] .article-entry hr { border-color: #a9c6da; }
+
+/* ---------- 标签与文末 ---------- */
+html[data-skin="graph"] .article-category a,
+html[data-skin="graph"] .article-tag a {
+  display: inline-block; border: 1px solid #a9c6da; border-radius: 2px;
+  padding: 2px 10px; margin: 0 8px 6px 0; font-size: 12px; color: #1a4f7a; background: #eef4f8;
+}
+html[data-skin="graph"] .article-category a:hover,
+html[data-skin="graph"] .article-tag a:hover { background: #dcebf5; }
+html[data-skin="graph"] .article-nav { border-top: 1px solid #a9c6da; }
+html[data-skin="graph"] .article-nav a { color: #1a4f7a; }
+html[data-skin="graph"] #page-nav a,
+html[data-skin="graph"] #page-nav span {
+  background: #eef4f8; border-color: #a9c6da; color: #22303c; border-radius: 2px;
+}
+html[data-skin="graph"] #page-nav .current { background: #1a4f7a; border-color: #1a4f7a; color: #fbfcf8; }
+html[data-skin="graph"] #footer-info { border-top: 1px solid #a9c6da; color: #5b7280; }
+html[data-skin="graph"] ::selection { background: #cfe5f5; color: #16324a; }
